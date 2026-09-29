@@ -48,16 +48,27 @@
       '<div class="nav-links">' + desktopLinks +
         '<a class="btn btn-gold nav-cta" href="contact.html">Enquire</a>' +
       '</div>' +
-      '<button class="nav-toggle" id="navToggle" aria-label="Open menu">' +
+      '<button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">' +
         '<span></span><span></span><span></span>' +
       '</button>' +
     '</nav>' +
-    '<div class="nav-mobile" id="navMobile">' +
+    '<div class="nav-mobile" id="navMobile" aria-hidden="true">' +
       '<div class="nav-mobile-top">' +
-        '<a class="nav-brand" href="index.html"><span>OLEETZO</span></a>' +
-        '<button class="nav-mobile-close" id="navClose" aria-label="Close menu">&times;</button>' +
+        '<a class="nav-brand" href="index.html">' +
+          '<img src="assets/images/logo-mark.png" alt="Oleetzo emblem" style="height:32px;">' +
+          '<span>OLEETZO</span>' +
+        '</a>' +
+        '<button class="nav-mobile-close" id="navClose" aria-label="Close navigation menu">&times;</button>' +
       '</div>' +
       '<div class="nav-mobile-links">' + mobileLinks + '</div>' +
+      '<div class="nav-mobile-footer">' +
+        '<a class="btn btn-gold nav-mobile-cta" href="contact.html">Enquire &amp; Order</a>' +
+        '<div class="nav-mobile-social">' +
+          '<a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 2h8a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V8a6 6 0 0 1 6-6Zm0 2a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H8Zm4 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2ZM17.6 6a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 17.6 6Z"/></svg></a>' +
+          '<a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.4c0-.86.24-1.45 1.48-1.45h1.58V4.28C16.3 4.2 15.3 4.1 14.15 4.1c-2.4 0-4.05 1.47-4.05 4.16v2.14H7.5v3h2.6V21Z"/></svg></a>' +
+          '<a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 3a8.9 8.9 0 0 0-7.6 13.6L3 21l4.5-1.4A8.9 8.9 0 1 0 12.04 3Zm0 1.9a7 7 0 0 1 6 10.6l-.24.4.7 2.5-2.55-.66-.4.24a7 7 0 1 1-3.5-13.08Zm-2.9 3.6c-.2 0-.5 0-.7.3s-.85.8-.85 1.9.85 2.2 1 2.4a7.9 7.9 0 0 0 3.2 2.9c1.5.6 1.8.5 2.15.5.5-.05 1.4-.55 1.6-1.1.2-.55.2-1 .15-1.1s-.2-.15-.4-.25-1.4-.7-1.6-.75-.35-.1-.5.1-.6.75-.7.9-.25.15-.45.05a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.15-.25 0-.35.1-.45s.2-.25.3-.4.15-.25.2-.4.05-.3 0-.4-.6-1.45-.85-2Z"/></svg></a>' +
+        '</div>' +
+      '</div>' +
     '</div>';
 
   var host = document.getElementById('site-header');
@@ -76,11 +87,25 @@
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  if(toggle){ toggle.addEventListener('click', function(){ mobile.classList.add('open'); }); }
-  if(close){ close.addEventListener('click', function(){ mobile.classList.remove('open'); }); }
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      mobile.classList.add('open');
+      mobile.setAttribute('aria-hidden', 'false');
+    });
+  }
+  if(close){
+    close.addEventListener('click', function(){
+      mobile.classList.remove('open');
+      mobile.setAttribute('aria-hidden', 'true');
+    });
+  }
   if(mobile){
     mobile.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ mobile.classList.remove('open'); });
+      a.addEventListener('click', function(){
+        mobile.classList.remove('open');
+        mobile.setAttribute('aria-hidden', 'true');
+      });
     });
   }
 })();
+
