@@ -158,7 +158,6 @@
     waBtn.setAttribute('aria-label', 'Chat with Oleetzo on WhatsApp (+94 70 113 7377)');
     waBtn.setAttribute('title', 'Chat on WhatsApp: +94 70 113 7377');
     waBtn.innerHTML =
-      '<span class="floating-wa-pulse" aria-hidden="true"></span>' +
       '<svg width="30" height="30" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">' +
       '<path d="M12.04 3a8.9 8.9 0 0 0-7.6 13.6L3 21l4.5-1.4A8.9 8.9 0 1 0 12.04 3Zm0 1.9a7 7 0 0 1 6 10.6l-.24.4.7 2.5-2.55-.66-.4.24a7 7 0 1 1-3.5-13.08Zm-2.9 3.6c-.2 0-.5 0-.7.3s-.85.8-.85 1.9.85 2.2 1 2.4a7.9 7.9 0 0 0 3.2 2.9c1.5.6 1.8.5 2.15.5.5-.05 1.4-.55 1.6-1.1.2-.55.2-1 .15-1.1s-.2-.15-.4-.25-1.4-.7-1.6-.75-.35-.1-.5.1-.6.75-.7.9-.25.15-.45.05a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.15-.25 0-.35.1-.45s.2-.25.3-.4.15-.25.2-.4.05-.3 0-.4-.6-1.45-.85-2Z"/>' +
       '</svg>';

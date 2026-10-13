@@ -8,6 +8,7 @@
   var year = new Date().getFullYear();
 
   var html =
+    '<div class="footer-spice-pattern" aria-hidden="true"></div>' +
     '<div class="wrap footer-wrap">' +
     '<div class="footer-top">' +
 
