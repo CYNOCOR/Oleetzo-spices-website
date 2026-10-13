@@ -32,10 +32,10 @@
     '<div class="footer-col footer-accordion">' +
       '<h4 class="footer-accordion-header"><span>CATEGORIES</span><span class="acc-icon" aria-hidden="true">+</span></h4>' +
       '<ul class="footer-accordion-content">' +
-        '<li><a href="products.html#whole">Whole Spices</a></li>' +
-        '<li><a href="products.html#ground">Ground Spices</a></li>' +
-        '<li><a href="products.html#blends">Signature Blends</a></li>' +
-        '<li><a href="products.html">Gifting Sets</a></li>' +
+        '<li><a href="products.html?filter=curry">Curry Powders</a></li>' +
+        '<li><a href="products.html?filter=chilli">Chilli &amp; Flakes</a></li>' +
+        '<li><a href="products.html?filter=pepper">Highland Black Pepper</a></li>' +
+        '<li><a href="products.html">1 kg Master Collection</a></li>' +
       '</ul>' +
     '</div>' +
     '<div class="footer-col footer-newsletter">' +

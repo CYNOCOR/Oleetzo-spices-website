@@ -505,6 +505,7 @@ section{ padding:clamp(4rem, 8vw, 7.5rem) 0; }
 .spice-card h3{ margin-top:1.3rem; font-size:1.25rem; }
 .spice-card .origin{ font-size:0.78rem; letter-spacing:0.08em; color:var(--gold-700); margin-top:0.25rem; font-weight:500; }
 .spice-card p.note{ margin-top:0.6rem; font-size:0.92rem; color:var(--ink-soft); }
+.section-dark .spice-card h3{ color:var(--ivory); }
 .section-dark .spice-card p.note{ color:var(--ivory-dim); }
 
 /* story split */
@@ -835,3 +836,167 @@ section{ padding:clamp(4rem, 8vw, 7.5rem) 0; }
   
   .btn { min-height: 46px; }
 }
+
+/* =====================================================
+   OLEETZO AUTHENTIC 1 KG PRODUCT SHOWCASE & PACKAGING
+   ===================================================== */
+.products-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.2rem;
+}
+@media (max-width: 1200px) {
+  .products-collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .products-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+}
+@media (max-width: 500px) {
+  .products-collection-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    margin-inline: auto;
+  }
+}
+
+.spice-card .frame.packaging-frame {
+  aspect-ratio: 2 / 3;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
+  border: 1px solid rgba(238, 201, 122, 0.3);
+  box-shadow: 0 16px 36px -10px rgba(30, 3, 7, 0.35);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+}
+.spice-card:hover .frame.packaging-frame {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--gold-500);
+  box-shadow: 0 24px 50px -10px rgba(217, 164, 65, 0.35);
+}
+.spice-card .frame.packaging-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.spice-card:hover .frame.packaging-frame img {
+  transform: scale(1.06);
+}
+
+.pack-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(20, 2, 5, 0.88);
+  backdrop-filter: blur(8px);
+  color: var(--gold-300);
+  border: 1px solid var(--gold-500);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.28rem 0.7rem;
+  border-radius: var(--radius-pill);
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  pointer-events: none;
+}
+
+.pack-badge-subtle {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--wine-900);
+  background: rgba(217, 164, 65, 0.18);
+  border: 1px solid rgba(217, 164, 65, 0.4);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  margin-top: 0.3rem;
+}
+
+/* Products page cards */
+.product-card .img.packaging-img {
+  aspect-ratio: 2 / 3;
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line-on-light);
+}
+.product-card .img.packaging-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover .img.packaging-img img {
+  transform: scale(1.06);
+}
+
+.product-card .category-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+.product-card .origin-tag {
+  font-size: 0.7rem;
+  color: var(--gold-700);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.flavor-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+.flavor-chips span {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  background: rgba(247, 230, 191, 0.45);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(217, 164, 65, 0.25);
+}
+
+.btn-enquire-card {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--wine-950);
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+.btn-enquire-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(217, 164, 65, 0.4);
+}
+
+/* Detail page packaging frame */
+.main-photo-frame.packaging-detail-frame {
+  aspect-ratio: 2 / 3 !important;
+  max-width: 440px;
+  margin-inline: auto;
+  background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
+  border: 1px solid rgba(238, 201, 122, 0.35);
+  box-shadow: 0 24px 50px -12px rgba(30, 3, 7, 0.45);
+}
+.main-photo-frame.packaging-detail-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
