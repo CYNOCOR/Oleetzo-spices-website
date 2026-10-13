@@ -1,39 +1,46 @@
 /* =====================================================
-   OLEETZO — Site interactivity & animations
+   OLEETZO - Site Interactivity, Animations & Performance
    Logo Preloader controller, IntersectionObserver Scroll Reveals,
    Hero crossfade slideshow, product category filter,
    and contact form handling.
    ===================================================== */
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
 
   /* ---- 1. Logo Preloader Animation Controller ---- */
   var loader = document.getElementById('site-loader');
-  function hideLoader(){
-    if(!loader) return;
+  function hideLoader() {
+    if (!loader) return;
     loader.classList.add('is-loaded');
     document.body.classList.add('loaded');
-    setTimeout(function(){
-      if(loader && loader.parentNode){
+    setTimeout(function () {
+      if (loader && loader.parentNode) {
         loader.style.display = 'none';
       }
-    }, 900);
+    }, 800);
   }
 
-  // Smooth timer to ensure preloader animation displays elegantly on page load
-  var minLoaderTime = 1300; // 1.3s for breathtaking logo bloom
+  // Check if user has already seen the full intro in this session
+  var hasVisited = false;
+  try {
+    hasVisited = sessionStorage.getItem('oleetzo_intro_shown') === 'true';
+  } catch (e) {}
+
+  var minLoaderTime = hasVisited ? 300 : 1200;
   var loadStartTime = Date.now();
 
-  window.addEventListener('load', function(){
+  window.addEventListener('load', function () {
     var elapsed = Date.now() - loadStartTime;
     var remaining = Math.max(0, minLoaderTime - elapsed);
-    setTimeout(hideLoader, remaining);
+    setTimeout(function () {
+      hideLoader();
+      try { sessionStorage.setItem('oleetzo_intro_shown', 'true'); } catch (e) {}
+    }, remaining);
   });
 
   // Fallback in case window load fires very early or is delayed
-  setTimeout(hideLoader, 2400);
+  setTimeout(hideLoader, 2200);
 
-  /* ---- 2. Scroll Reveal Animations ---- */
-  // Automatically tag grid items and sections with reveal classes
+  /* ---- 2. Scroll Reveal Animations (Performance Optimized) ---- */
   var revealSelectors = [
     '.section-head',
     '.pillar',
@@ -52,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Grouped containers for stagger effect
   var gridContainers = document.querySelectorAll('.pillars, .spice-grid, .product-grid, .quote-row, .craft, .values-grid, .region-strip');
-  gridContainers.forEach(function(container){
+  gridContainers.forEach(function (container) {
     var children = container.children;
-    for(var idx = 0; idx < children.length; idx++){
+    for (var idx = 0; idx < children.length; idx++) {
       var item = children[idx];
       item.classList.add('reveal');
       item.classList.add('stagger-' + ((idx % 5) + 1));
@@ -62,40 +69,40 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // Tag remaining elements
-  document.querySelectorAll(revealSelectors.join(',')).forEach(function(el){
-    if(!el.classList.contains('reveal')){
+  document.querySelectorAll(revealSelectors.join(',')).forEach(function (el) {
+    if (!el.classList.contains('reveal')) {
       el.classList.add('reveal');
     }
   });
 
-  // IntersectionObserver for scroll triggers
-  if('IntersectionObserver' in window){
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
+  // IntersectionObserver for scroll triggers with mobile-friendly threshold
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -20px 0px'
     });
 
-    document.querySelectorAll('.reveal').forEach(function(el){
+    document.querySelectorAll('.reveal').forEach(function (el) {
       observer.observe(el);
     });
   } else {
     // Fallback for older browsers
-    document.querySelectorAll('.reveal').forEach(function(el){
+    document.querySelectorAll('.reveal').forEach(function (el) {
       el.classList.add('revealed');
     });
   }
 
   /* ---- 3. Graceful fallback for hotlinked spice photography ---- */
-  document.querySelectorAll('img.ext-img').forEach(function(img){
-    img.addEventListener('error', function(){
-      if(img.dataset.fallenBack) return;
+  document.querySelectorAll('img.ext-img').forEach(function (img) {
+    img.addEventListener('error', function () {
+      if (img.dataset.fallenBack) return;
       img.dataset.fallenBack = '1';
       img.src = 'assets/images/logo-mark.png';
       img.classList.add('fallback');
@@ -104,9 +111,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /* ---- 4. Hero slideshow ---- */
   var slides = document.querySelectorAll('.hero-slide');
-  if(slides.length){
+  if (slides.length) {
     var i = 0;
-    setInterval(function(){
+    setInterval(function () {
       slides[i].classList.remove('is-active');
       i = (i + 1) % slides.length;
       slides[i].classList.add('is-active');
@@ -116,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function(){
   /* ---- 5. Product filter (products.html) ---- */
   var filterBtns = document.querySelectorAll('.filter-btn');
   var cards = document.querySelectorAll('.product-card');
+<<<<<<< HEAD
   if(filterBtns.length){
     function applyFilter(cat){
       filterBtns.forEach(function(b){
@@ -142,6 +150,23 @@ document.addEventListener('DOMContentLoaded', function(){
     filterBtns.forEach(function(btn){
       btn.addEventListener('click', function(){
         applyFilter(btn.getAttribute('data-filter'));
+=======
+  if (filterBtns.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var cat = btn.getAttribute('data-filter');
+        cards.forEach(function (card) {
+          var show = (cat === 'all') || card.getAttribute('data-category') === cat;
+          if (show) {
+            card.style.display = '';
+            setTimeout(function () { card.classList.add('revealed'); }, 40);
+          } else {
+            card.style.display = 'none';
+          }
+        });
+>>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
       });
     });
   }
@@ -149,30 +174,23 @@ document.addEventListener('DOMContentLoaded', function(){
   /* ---- 6. Contact form confirmation & auto-fill ---- */
   var form = document.getElementById('contactForm');
   var subjectField = document.getElementById('subject');
-  if(subjectField){
+  if (subjectField) {
     var queryParams = new URLSearchParams(window.location.search);
     var spiceParam = queryParams.get('spice');
-    if(spiceParam){
+    if (spiceParam) {
       subjectField.value = 'Enquiry regarding ' + spiceParam;
     }
   }
 
-  if(form){
-    form.addEventListener('submit', function(e){
+  if (form) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       var note = document.getElementById('contactNote');
-      note.textContent = 'Thank you — your message has been noted. We will reply within one business day.';
-      note.classList.add('show');
+      if (note) {
+        note.textContent = 'Thank you - your message has been received. We will reply within one business day.';
+        note.classList.add('show');
+      }
       form.reset();
     });
-  }
-
-  /* ---- 7. Mobile nav body-scroll lock ---- */
-  var navMobile = document.getElementById('navMobile');
-  if(navMobile){
-    var obs = new MutationObserver(function(){
-      document.body.style.overflow = navMobile.classList.contains('open') ? 'hidden' : '';
-    });
-    obs.observe(navMobile, { attributes:true, attributeFilter:['class'] });
   }
 });
