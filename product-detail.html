@@ -4,95 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Spice Detail - Oleetzo Ceylon Spices</title>
+  <title>Spice Detail — Oleetzo Ceylon Spices</title>
   <meta name="description" content="Single-origin Ceylon spice detail, provenance, and craft harvest notes.">
   <meta name="theme-color" content="#1e0307">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<<<<<<< HEAD
-.gallery-sticky {
-  position: sticky;
-  top: 6.5rem;
-}
-.main-photo-frame {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  max-width: 440px;
-  margin: 0 auto;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid rgba(238, 201, 122, 0.35);
-  box-shadow: 0 24px 50px -12px rgba(30, 3, 7, 0.45);
-  background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
-  position: relative;
-}
-.main-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-}
-.main-photo-frame:hover img {
-  transform: scale(1.05);
-}
-
-.thumb-row {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 1.2rem;
-  justify-content: center;
-}
-.thumb-btn {
-  width: 74px;
-  height: 100px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 2px solid transparent;
-  padding: 0;
-  background: #140204;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-soft);
-}
-.thumb-btn.active, .thumb-btn:hover {
-  border-color: var(--gold-500);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-gold);
-}
-.thumb-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-=======
-  <meta property="og:title" content="Spice Detail - Oleetzo Ceylon Spices">
-  <meta property="og:description" content="Single-origin Ceylon spice detail, provenance, and craft harvest notes.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/logo-mark.png">
-  <meta name="twitter:card" content="summary_large_image">
-
   <link rel="icon" href="assets/images/logo-mark.png">
->>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
 
-  <!-- Performance: Preconnect & Load Google Fonts asynchronously -->
+  <!-- Performance: Preconnect & Load Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
 
   <link rel="stylesheet" href="css/global.css">
+
   <style>
-    /* Product Detail Page Custom Styling */
     .detail-layout {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: clamp(1.8rem, 4vw, 4rem);
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
       align-items: start;
       margin-top: 1rem;
     }
 
-    @media (max-width: 920px) {
+    @media (max-width: 900px) {
       .detail-layout {
         grid-template-columns: 1fr;
       }
@@ -100,56 +37,146 @@
 
     .gallery-sticky {
       position: sticky;
-      top: 6rem;
-    }
-
-    @media (max-width: 920px) {
-      .gallery-sticky {
-        position: static;
-      }
+      top: 6.5rem;
     }
 
     .main-photo-frame {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      max-width: 360px;
+      max-height: 515px;
+      aspect-ratio: 2 / 2.85;
+      margin: 0 auto;
       border-radius: var(--radius-xl);
       overflow: hidden;
-      border: 1px solid var(--line-on-light);
-      box-shadow: var(--shadow-hover);
-      background: #fff;
+      border: 1px solid rgba(238, 201, 122, 0.35);
+      box-shadow: 0 20px 48px -12px rgba(30, 3, 7, 0.42);
+      background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
       position: relative;
+      user-select: none;
+      touch-action: pan-y pinch-zoom;
     }
 
     .main-photo-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      will-change: transform, opacity;
     }
 
     .main-photo-frame:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
+    }
+
+    /* Left & Right Interactive Navigation Arrow Buttons */
+    .gallery-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(28, 3, 6, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(238, 201, 122, 0.55);
+      color: var(--gold-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .gallery-nav-btn.prev-btn {
+      left: 12px;
+    }
+
+    .gallery-nav-btn.next-btn {
+      right: 12px;
+    }
+
+    /* Reveal arrows smoothly when cursor hovers over main product box */
+    .main-photo-frame:hover .gallery-nav-btn {
+      opacity: 0.95;
+      visibility: visible;
+    }
+
+    .gallery-nav-btn:hover {
+      opacity: 1 !important;
+      background: var(--wine-900);
+      border-color: var(--gold-100);
+      color: #fff;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 10px 28px rgba(238, 201, 122, 0.4);
+    }
+
+    .gallery-nav-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .gallery-photo-counter {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(24, 2, 5, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(238, 201, 122, 0.45);
+      color: var(--gold-100);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      z-index: 9;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .main-photo-frame:hover .gallery-photo-counter {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) or (hover: none) {
+      .gallery-nav-btn {
+        opacity: 0.9;
+        visibility: visible;
+        width: 40px;
+        height: 40px;
+      }
+      .gallery-photo-counter {
+        opacity: 0.9;
+      }
     }
 
     .thumb-row {
       display: flex;
       gap: 0.8rem;
-      margin-top: 1rem;
+      margin-top: 1.1rem;
+      justify-content: center;
       overflow-x: auto;
+      padding-bottom: 0.3rem;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 0.4rem;
     }
 
     .thumb-btn {
-      width: clamp(64px, 8vw, 82px);
-      height: clamp(64px, 8vw, 82px);
+      width: 70px;
+      height: 94px;
       border-radius: var(--radius-md);
       overflow: hidden;
       border: 2px solid transparent;
       padding: 0;
-      background: none;
+      background: #140204;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: var(--shadow-soft);
       flex-shrink: 0;
       -webkit-tap-highlight-color: transparent;
@@ -158,7 +185,7 @@
     .thumb-btn.active,
     .thumb-btn:hover {
       border-color: var(--gold-500);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
       box-shadow: var(--shadow-gold);
     }
 
@@ -196,17 +223,17 @@
     }
 
     .detail-title {
-      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       line-height: 1.1;
       color: var(--ink);
       margin-bottom: 0.8rem;
     }
 
     .detail-tagline {
-      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      font-size: 1.15rem;
       color: var(--ink-soft);
-      line-height: 1.55;
-      margin-bottom: 1.6rem;
+      line-height: 1.5;
+      margin-bottom: 1.8rem;
     }
 
     .tasting-chips {
@@ -217,7 +244,7 @@
     }
 
     .tasting-chip {
-      background: rgba(247, 230, 191, 0.45);
+      background: rgba(247, 230, 191, 0.4);
       border: 1px solid rgba(182, 130, 42, 0.3);
       color: var(--wine-950);
       font-size: 0.85rem;
@@ -230,8 +257,8 @@
       background: #fff;
       border: 1px solid var(--line-on-light);
       border-radius: var(--radius-lg);
-      padding: clamp(1.4rem, 2.5vw, 2rem);
-      margin-top: 1.6rem;
+      padding: 1.8rem 2rem;
+      margin-top: 1.8rem;
       box-shadow: var(--shadow-soft);
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
@@ -267,14 +294,12 @@
     .specs-table td {
       padding: 0.75rem 0;
       font-size: 0.92rem;
-      vertical-align: top;
     }
 
     .specs-table td.k {
       color: var(--ink-soft);
       font-weight: 500;
-      width: 42%;
-      padding-right: 0.8rem;
+      width: 40%;
     }
 
     .specs-table td.v {
@@ -284,8 +309,8 @@
 
     .action-bar {
       display: flex;
-      gap: 1rem;
-      margin-top: 2.2rem;
+      gap: 1.2rem;
+      margin-top: 2.4rem;
       flex-wrap: wrap;
       align-items: center;
     }
@@ -298,24 +323,43 @@
       background: #fff;
       border: 1px solid var(--line-on-light);
       border-radius: var(--radius-pill);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--wine-950);
       box-shadow: var(--shadow-soft);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      margin-bottom: 1.6rem;
-      min-height: 44px;
+      margin-bottom: 1.8rem;
     }
 
     .back-btn-pill:hover {
       background: var(--wine-950);
       color: var(--ivory);
       border-color: var(--wine-950);
-      transform: translateX(-4px);
+      transform: translateX(-5px);
       box-shadow: var(--shadow-hover);
     }
 
     @media (max-width: 640px) {
+      .gallery-sticky {
+        position: static;
+      }
+
+      .thumb-row {
+        gap: 0.6rem;
+        overflow-x: auto;
+        padding-bottom: 0.4rem;
+      }
+
+      .thumb-btn {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+      }
+
+      .detail-box {
+        padding: 1.3rem 1.4rem;
+      }
+
       .action-bar {
         flex-direction: column;
         width: 100%;
@@ -337,29 +381,27 @@
 
 <body data-page="product-detail">
 
+  <!-- ================= SITE PRELOADER (3 SECONDS) ================= -->
+  <div id="site-loader" class="loader-overlay" role="status" aria-live="polite" aria-label="Loading Oleetzo">
+    <div class="loader-content">
+      <div class="loader-emblem-wrap">
+        <div class="loader-ambient-glow"></div>
+        <div class="loader-glow-ring"></div>
+        <div class="loader-glow-ring ring-2"></div>
+        <div class="loader-glow-ring ring-3"></div>
+        <img src="assets/images/logo-mark.png" alt="Oleetzo emblem" class="loader-logo-mark" width="90" height="90">
+      </div>
+      <div class="loader-title">OLEETZO</div>
+      <div class="loader-sub">Single-Origin Ceylon Spices</div>
+      <div class="loader-tagline">Pure &bull; Sun-Dried &bull; Authentic</div>
+    </div>
+  </div>
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header id="site-header"></header>
 
-<<<<<<< HEAD
-    <div class="detail-layout">
-      <!-- Left: Photo Gallery -->
-      <div class="gallery-sticky">
-        <div class="main-photo-frame packaging-detail-frame">
-          <span class="pack-badge" id="detailPackBadge">1 kg Pack</span>
-          <img id="detailMainImg" src="" alt="Spice photo" class="ext-img">
-        </div>
-        <div class="thumb-row" id="detailThumbRow"></div>
-      </div>
-
-      <!-- Right: Detailed Content -->
-      <div>
-        <div class="detail-badge-row">
-          <span class="detail-category-pill" id="detailCategory">SPICE</span>
-          <span class="detail-origin-pill" id="detailOrigin">Sri Lanka</span>
-          <span class="pack-badge-subtle" id="detailWeightPill">1 kg Net Weight</span>
-=======
-  <section class="section-cream" id="main-content" style="padding-top: clamp(6.5rem, 12vh, 8rem);">
+  <section class="section-cream" id="main-content" style="padding-top: 7.5rem;">
     <div class="wrap">
 
       <a href="products.html" class="back-btn-pill" id="backToPantryBtn">
@@ -369,11 +411,22 @@
       <div class="detail-layout">
         <!-- Left: Photo Gallery -->
         <div class="gallery-sticky">
-          <div class="main-photo-frame">
-            <img id="detailMainImg" src="" alt="Spice photo" class="ext-img" width="700" height="700" decoding="async">
+          <div class="main-photo-frame packaging-detail-frame" id="mainPhotoFrame">
+            <span class="pack-badge" id="detailPackBadge">1 kg Pack</span>
+            <img id="detailMainImg" src="" alt="Spice photo" class="ext-img">
+            <button class="gallery-nav-btn prev-btn" id="galleryPrevBtn" aria-label="Previous photo" title="Previous photo">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="gallery-nav-btn next-btn" id="galleryNextBtn" aria-label="Next photo" title="Next photo">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+            <div class="gallery-photo-counter" id="galleryCounter">1 / 3</div>
           </div>
           <div class="thumb-row" id="detailThumbRow"></div>
->>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
         </div>
 
         <!-- Right: Detailed Content -->
@@ -381,6 +434,7 @@
           <div class="detail-badge-row">
             <span class="detail-category-pill" id="detailCategory">SPICE</span>
             <span class="detail-origin-pill" id="detailOrigin">Sri Lanka</span>
+            <span class="pack-badge-subtle" id="detailWeightPill">1 kg Net Weight</span>
           </div>
 
           <h1 class="detail-title" id="detailName">Spice Name</h1>
@@ -395,8 +449,7 @@
 
           <div class="detail-box reveal">
             <h4>Tasting Profile &amp; Aroma</h4>
-            <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:0.6rem;">Key flavor notes detected on first
-              aroma &amp; palate:</p>
+            <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:0.6rem;">Key flavor notes detected on first aroma &amp; palate:</p>
             <div class="tasting-chips" id="detailTastingNotes"></div>
 
             <div style="margin-top:1.2rem;display:flex;align-items:center;gap:1rem;">
@@ -407,7 +460,7 @@
 
           <div class="detail-box reveal">
             <h4>Best Culinary Uses</h4>
-            <p id="detailBestFor" style="font-size:0.98rem;color:var(--ink);line-height:1.55;"></p>
+            <p id="detailBestFor" style="font-size:0.98rem;color:var(--ink);line-height:1.5;"></p>
           </div>
 
           <div class="detail-box reveal">
@@ -421,7 +474,11 @@
           </div>
 
           <div class="action-bar reveal">
-            <a class="btn btn-gold" id="enquireSpiceBtn" href="contact.html">Enquire / Order This Spice</a>
+            <a class="btn btn-gold" id="enquireSpiceBtn" href="contact.html">Enquire / Order 1kg Pack &rarr;</a>
+            <a class="btn btn-line-dark" id="whatsappSpiceBtn" href="https://wa.me/94701137377" target="_blank" rel="noopener noreferrer" style="border-color:rgba(37,211,102,0.4);color:#128c7e;display:inline-flex;align-items:center;gap:0.4rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true"><path d="M12.04 3a8.9 8.9 0 0 0-7.6 13.6L3 21l4.5-1.4A8.9 8.9 0 1 0 12.04 3Zm0 1.9a7 7 0 0 1 6 10.6l-.24.4.7 2.5-2.55-.66-.4.24a7 7 0 1 1-3.5-13.08Zm-2.9 3.6c-.2 0-.5 0-.7.3s-.85.8-.85 1.9.85 2.2 1 2.4a7.9 7.9 0 0 0 3.2 2.9c1.5.6 1.8.5 2.15.5.5-.05 1.4-.55 1.6-1.1.2-.55.2-1 .15-1.1s-.2-.15-.4-.25-1.4-.7-1.6-.75-.35-.1-.5.1-.6.75-.7.9-.25.15-.45.05a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.15-.25 0-.35.1-.45s.2-.25.3-.4.15-.25.2-.4.05-.3 0-.4-.6-1.45-.85-2Z"/></svg>
+              <span>Order on WhatsApp</span>
+            </a>
             <a class="btn btn-line-dark" href="products.html">Browse All Pantry Items</a>
           </div>
         </div>
@@ -438,7 +495,6 @@
           <p class="eyebrow">EXPLORE MORE</p>
           <h2>Pairing &amp; Complementary Spices</h2>
         </div>
-        <a class="btn btn-line" href="products.html">View Full Collection &rarr;</a>
       </div>
       <div class="spice-grid" id="relatedSpicesGrid"></div>
     </div>
@@ -451,70 +507,134 @@
   <script src="js/footer.js"></script>
   <script src="js/main.js"></script>
 
-<<<<<<< HEAD
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var params = new URLSearchParams(window.location.search);
-  var spiceId = params.get('id') || 'chillie-powder';
-
-  var spice = SPICES_DATA[spiceId] || SPICES_DATA['chillie-powder'];
-  if(spice && spice.aliasOf && SPICES_DATA[spice.aliasOf]){
-    spice = SPICES_DATA[spice.aliasOf];
-  }
-=======
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var params = new URLSearchParams(window.location.search);
-      var spiceId = params.get('id') || 'cinnamon';
+      var spiceId = params.get('id') || 'chillie-powder';
 
-      var spice = SPICES_DATA[spiceId] || SPICES_DATA['cinnamon'];
->>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
+      var spice = SPICES_DATA[spiceId] || SPICES_DATA['chillie-powder'];
+      if (spice && spice.aliasOf && SPICES_DATA[spice.aliasOf]) {
+        spice = SPICES_DATA[spice.aliasOf];
+      }
 
-      document.title = spice.name + ' - Oleetzo Ceylon Spices';
+      document.title = spice.name + ' — Oleetzo Ceylon Spices';
 
       document.getElementById('detailCategory').textContent = spice.category;
       document.getElementById('detailOrigin').textContent = spice.origin;
       document.getElementById('detailName').textContent = spice.name;
       document.getElementById('detailTagline').textContent = spice.tagline;
 
-<<<<<<< HEAD
-  var packBadge = document.getElementById('detailPackBadge');
-  if(packBadge){
-    packBadge.textContent = spice.netWeight ? (spice.netWeight + ' Pack') : '1 kg Pack';
-  }
-  var weightPill = document.getElementById('detailWeightPill');
-  if(weightPill){
-    weightPill.textContent = spice.netWeight ? (spice.netWeight + ' Net Weight') : '1 kg Net Weight';
-  }
+      var packBadge = document.getElementById('detailPackBadge');
+      if (packBadge) {
+        packBadge.textContent = spice.netWeight ? (spice.netWeight + ' Pack') : '1 kg Pack';
+      }
+      var weightPill = document.getElementById('detailWeightPill');
+      if (weightPill) {
+        weightPill.textContent = spice.netWeight ? (spice.netWeight + ' Net Weight') : '1 kg Net Weight';
+      }
 
-  var mainImg = document.getElementById('detailMainImg');
-  mainImg.src = spice.image;
-  mainImg.alt = spice.name;
-=======
       var mainImg = document.getElementById('detailMainImg');
-      mainImg.src = spice.image;
-      mainImg.alt = spice.name;
->>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
-
       var thumbRow = document.getElementById('detailThumbRow');
-      thumbRow.innerHTML = '';
-      if (spice.gallery && spice.gallery.length) {
-        spice.gallery.forEach(function (imgUrl, idx) {
-          var btn = document.createElement('button');
-          btn.className = 'thumb-btn' + (idx === 0 ? ' active' : '');
-          btn.setAttribute('aria-label', 'View photo ' + (idx + 1));
-          btn.innerHTML = '<img src="' + imgUrl + '" alt="' + spice.name + ' thumbnail ' + (idx + 1) + '" class="ext-img" loading="lazy" decoding="async" width="80" height="80">';
-          btn.addEventListener('click', function () {
-            thumbRow.querySelectorAll('.thumb-btn').forEach(function (b) { b.classList.remove('active'); });
+      var counterEl = document.getElementById('galleryCounter');
+      var prevBtn = document.getElementById('galleryPrevBtn');
+      var nextBtn = document.getElementById('galleryNextBtn');
+      var photoFrame = document.getElementById('mainPhotoFrame');
+
+      var galleryImages = (spice.gallery && spice.gallery.length) ? spice.gallery : [spice.image];
+      var currentGalleryIdx = 0;
+
+      function renderImage(idx) {
+        if (!galleryImages.length) return;
+        currentGalleryIdx = (idx + galleryImages.length) % galleryImages.length;
+        var newSrc = galleryImages[currentGalleryIdx];
+
+        mainImg.style.opacity = '0.35';
+        mainImg.style.transform = 'scale(0.98)';
+        setTimeout(function () {
+          mainImg.src = newSrc;
+          mainImg.style.opacity = '1';
+          mainImg.style.transform = 'scale(1)';
+        }, 130);
+
+        if (counterEl) {
+          counterEl.textContent = (currentGalleryIdx + 1) + ' / ' + galleryImages.length;
+        }
+
+        var buttons = thumbRow.querySelectorAll('.thumb-btn');
+        buttons.forEach(function (btn, i) {
+          if (i === currentGalleryIdx) {
             btn.classList.add('active');
-            mainImg.style.opacity = '0.3';
-            setTimeout(function () {
-              mainImg.src = imgUrl;
-              mainImg.style.opacity = '1';
-            }, 120);
-          });
-          thumbRow.appendChild(btn);
+            try {
+              btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+            } catch (err) {}
+          } else {
+            btn.classList.remove('active');
+          }
         });
+      }
+
+      // Initial image set
+      mainImg.src = galleryImages[0];
+      mainImg.alt = spice.name;
+      if (counterEl) {
+        counterEl.textContent = '1 / ' + galleryImages.length;
+      }
+
+      // Arrow buttons click listeners
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          renderImage(currentGalleryIdx - 1);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          renderImage(currentGalleryIdx + 1);
+        });
+      }
+
+      // Populate thumbnail buttons
+      thumbRow.innerHTML = '';
+      galleryImages.forEach(function (imgUrl, idx) {
+        var btn = document.createElement('button');
+        btn.className = 'thumb-btn' + (idx === 0 ? ' active' : '');
+        btn.setAttribute('aria-label', spice.name + ' image ' + (idx + 1));
+        btn.innerHTML = '<img src="' + imgUrl + '" alt="' + spice.name + ' thumbnail ' + (idx + 1) + '" class="ext-img">';
+        btn.addEventListener('click', function () {
+          renderImage(idx);
+        });
+        thumbRow.appendChild(btn);
+      });
+
+      // Keyboard left/right arrow navigation
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') renderImage(currentGalleryIdx - 1);
+        if (e.key === 'ArrowRight') renderImage(currentGalleryIdx + 1);
+      });
+
+      // Touch swipe support for mobile
+      var touchStartX = 0;
+      var touchStartY = 0;
+      if (photoFrame) {
+        photoFrame.addEventListener('touchstart', function (e) {
+          touchStartX = e.changedTouches[0].clientX;
+          touchStartY = e.changedTouches[0].clientY;
+        }, { passive: true });
+
+        photoFrame.addEventListener('touchend', function (e) {
+          var deltaX = e.changedTouches[0].clientX - touchStartX;
+          var deltaY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) {
+              renderImage(currentGalleryIdx + 1); // swiped left
+            } else {
+              renderImage(currentGalleryIdx - 1); // swiped right
+            }
+          }
+        }, { passive: true });
       }
 
       document.getElementById('detailOverview').textContent = spice.overview;
@@ -546,83 +666,36 @@ document.addEventListener('DOMContentLoaded', function(){
 
       var enquireBtn = document.getElementById('enquireSpiceBtn');
       enquireBtn.href = 'contact.html?spice=' + encodeURIComponent(spice.name);
+      enquireBtn.innerHTML = 'Enquire / Order ' + (spice.netWeight || '1kg') + ' Pack &rarr;';
+
+      var waBtn = document.getElementById('whatsappSpiceBtn');
+      if (waBtn) {
+        var waMsg = encodeURIComponent('Hello Oleetzo! I want to order / enquire about the ' + spice.name + ' (' + (spice.netWeight || '1kg') + ' pack).');
+        waBtn.href = 'https://wa.me/94701137377?text=' + waMsg;
+      }
 
       var relatedGrid = document.getElementById('relatedSpicesGrid');
       relatedGrid.innerHTML = '';
-      var keys = Object.keys(SPICES_DATA).filter(function (k) { return k !== spice.id; });
-      var relatedKeys = keys.slice(0, 4);
+      var flagshipOrder = ['chillie-powder', 'chillie-flakes', 'black-pepper', 'curry-powder', 'roasted-curry-powder'];
+      var relatedKeys = flagshipOrder.filter(function (k) { return k !== spice.id; });
       relatedKeys.forEach(function (key) {
         var item = SPICES_DATA[key];
+        if (!item) return;
         var card = document.createElement('div');
         card.className = 'spice-card reveal';
         card.innerHTML =
-          '<a href="product-detail.html?id=' + item.id + '" aria-label="View ' + item.name + ' details">' +
-          '<div class="frame"><img class="ext-img" loading="lazy" decoding="async" width="700" height="700" src="' + item.image + '" alt="' + item.name + '"></div>' +
+          '<a href="product-detail.html?id=' + item.id + '">' +
+          '<div class="frame packaging-frame">' +
+          '<span class="pack-badge">' + (item.netWeight || '1 kg') + ' Pack</span>' +
+          '<img loading="lazy" src="' + item.image + '" alt="' + item.name + '">' +
+          '</div>' +
           '<h3>' + item.name + '</h3>' +
           '<p class="origin">' + item.origin + '</p>' +
           '</a>';
         relatedGrid.appendChild(card);
       });
     });
-<<<<<<< HEAD
-  }
-
-  document.getElementById('detailOverview').textContent = spice.overview;
-
-  var tastingBox = document.getElementById('detailTastingNotes');
-  tastingBox.innerHTML = '';
-  if(spice.tastingNotes){
-    spice.tastingNotes.forEach(function(note){
-      var chip = document.createElement('span');
-      chip.className = 'tasting-chip';
-      chip.textContent = '✦ ' + note;
-      tastingBox.appendChild(chip);
-    });
-  }
-
-  document.getElementById('detailAromaLevel').textContent = spice.aromaLevel || 'High';
-  document.getElementById('detailBestFor').textContent = spice.bestFor;
-  document.getElementById('detailProcess').textContent = spice.process;
-
-  var specsTable = document.getElementById('detailSpecsTable');
-  specsTable.innerHTML = '';
-  if(spice.specs){
-    for(var k in spice.specs){
-      var tr = document.createElement('tr');
-      tr.innerHTML = '<td class="k">' + k + '</td><td class="v">' + spice.specs[k] + '</td>';
-      specsTable.appendChild(tr);
-    }
-  }
-
-  var enquireBtn = document.getElementById('enquireSpiceBtn');
-  enquireBtn.href = 'contact.html?spice=' + encodeURIComponent(spice.name);
-  enquireBtn.innerHTML = 'Enquire / Order ' + (spice.netWeight || '1kg') + ' Pack &rarr;';
-
-  var relatedGrid = document.getElementById('relatedSpicesGrid');
-  relatedGrid.innerHTML = '';
-  var flagshipOrder = ['chillie-powder', 'chillie-flakes', 'black-pepper', 'curry-powder', 'roasted-curry-powder'];
-  var relatedKeys = flagshipOrder.filter(function(k){ return k !== spice.id; });
-  relatedKeys.forEach(function(key){
-    var item = SPICES_DATA[key];
-    if(!item) return;
-    var card = document.createElement('div');
-    card.className = 'spice-card reveal';
-    card.innerHTML =
-      '<a href="product-detail.html?id=' + item.id + '">' +
-        '<div class="frame packaging-frame">' +
-          '<span class="pack-badge">' + (item.netWeight || '1 kg') + ' Pack</span>' +
-          '<img loading="lazy" src="' + item.image + '" alt="' + item.name + '">' +
-        '</div>' +
-        '<h3>' + item.name + '</h3>' +
-        '<p class="origin">' + item.origin + '</p>' +
-      '</a>';
-    relatedGrid.appendChild(card);
-  });
-});
-</script>
-=======
   </script>
->>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
 </body>
 
 </html>

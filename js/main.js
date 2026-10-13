@@ -6,39 +6,37 @@
    ===================================================== */
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ---- 1. Logo Preloader Animation Controller ---- */
+  /* ---- 1. Logo Preloader Animation Controller (Exact 3.0s Presentation) ---- */
   var loader = document.getElementById('site-loader');
+  var TARGET_DURATION = 3000; // 3 seconds presentation
+  var loaderHidden = false;
+
   function hideLoader() {
-    if (!loader) return;
+    if (loaderHidden) return;
+    loaderHidden = true;
+    if (!loader) {
+      document.body.classList.add('loaded');
+      return;
+    }
+
     loader.classList.add('is-loaded');
     document.body.classList.add('loaded');
+
     setTimeout(function () {
       if (loader && loader.parentNode) {
         loader.style.display = 'none';
       }
-    }, 800);
+    }, 850);
   }
 
-  // Check if user has already seen the full intro in this session
-  var hasVisited = false;
-  try {
-    hasVisited = sessionStorage.getItem('oleetzo_intro_shown') === 'true';
-  } catch (e) {}
+  if (loader) {
+    setTimeout(hideLoader, TARGET_DURATION);
+  } else {
+    document.body.classList.add('loaded');
+  }
 
-  var minLoaderTime = hasVisited ? 300 : 1200;
-  var loadStartTime = Date.now();
-
-  window.addEventListener('load', function () {
-    var elapsed = Date.now() - loadStartTime;
-    var remaining = Math.max(0, minLoaderTime - elapsed);
-    setTimeout(function () {
-      hideLoader();
-      try { sessionStorage.setItem('oleetzo_intro_shown', 'true'); } catch (e) {}
-    }, remaining);
-  });
-
-  // Fallback in case window load fires very early or is delayed
-  setTimeout(hideLoader, 2200);
+  // Safety fallback timer at 3.3s
+  setTimeout(hideLoader, 3300);
 
   /* ---- 2. Scroll Reveal Animations (Performance Optimized) ---- */
   var revealSelectors = [
@@ -57,8 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     '.region'
   ];
 
-  // Grouped containers for stagger effect
-  var gridContainers = document.querySelectorAll('.pillars, .spice-grid, .product-grid, .quote-row, .craft, .values-grid, .region-strip');
+  var gridContainers = document.querySelectorAll('.pillars, .spice-grid, .product-grid, .products-collection-grid, .quote-row, .craft, .values-grid, .region-strip');
   gridContainers.forEach(function (container) {
     var children = container.children;
     for (var idx = 0; idx < children.length; idx++) {
@@ -68,14 +65,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Tag remaining elements
   document.querySelectorAll(revealSelectors.join(',')).forEach(function (el) {
     if (!el.classList.contains('reveal')) {
       el.classList.add('reveal');
     }
   });
 
-  // IntersectionObserver for scroll triggers with mobile-friendly threshold
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -85,21 +80,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
     }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -20px 0px'
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
     });
 
     document.querySelectorAll('.reveal').forEach(function (el) {
       observer.observe(el);
     });
   } else {
-    // Fallback for older browsers
     document.querySelectorAll('.reveal').forEach(function (el) {
       el.classList.add('revealed');
     });
   }
 
-  /* ---- 3. Graceful fallback for hotlinked spice photography ---- */
+  /* ---- 3. Graceful fallback for photography ---- */
   document.querySelectorAll('img.ext-img').forEach(function (img) {
     img.addEventListener('error', function () {
       if (img.dataset.fallenBack) return;
@@ -123,18 +117,20 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---- 5. Product filter (products.html) ---- */
   var filterBtns = document.querySelectorAll('.filter-btn');
   var cards = document.querySelectorAll('.product-card');
-<<<<<<< HEAD
-  if(filterBtns.length){
-    function applyFilter(cat){
-      filterBtns.forEach(function(b){
-        if(b.getAttribute('data-filter') === cat){ b.classList.add('active'); }
-        else { b.classList.remove('active'); }
+  if (filterBtns.length) {
+    function applyFilter(cat) {
+      filterBtns.forEach(function (b) {
+        if (b.getAttribute('data-filter') === cat) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
       });
-      cards.forEach(function(card){
+      cards.forEach(function (card) {
         var show = (cat === 'all') || card.getAttribute('data-category') === cat;
-        if(show){
+        if (show) {
           card.style.display = '';
-          setTimeout(function(){ card.classList.add('revealed'); }, 50);
+          setTimeout(function () { card.classList.add('revealed'); }, 40);
         } else {
           card.style.display = 'none';
         }
@@ -143,30 +139,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var searchParams = new URLSearchParams(window.location.search);
     var urlFilter = searchParams.get('filter');
-    if(urlFilter){
+    if (urlFilter) {
       applyFilter(urlFilter);
     }
 
-    filterBtns.forEach(function(btn){
-      btn.addEventListener('click', function(){
-        applyFilter(btn.getAttribute('data-filter'));
-=======
-  if (filterBtns.length) {
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
-        filterBtns.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        var cat = btn.getAttribute('data-filter');
-        cards.forEach(function (card) {
-          var show = (cat === 'all') || card.getAttribute('data-category') === cat;
-          if (show) {
-            card.style.display = '';
-            setTimeout(function () { card.classList.add('revealed'); }, 40);
-          } else {
-            card.style.display = 'none';
-          }
-        });
->>>>>>> d2efcd6544289dd39a657f5112d4090ff3a38c5c
+        applyFilter(btn.getAttribute('data-filter'));
       });
     });
   }
@@ -185,12 +164,29 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var name = document.getElementById('name') ? document.getElementById('name').value.trim() : '';
+      var userEmail = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+      var subjectVal = document.getElementById('subject') ? document.getElementById('subject').value.trim() : 'Oleetzo Spice Order / Enquiry';
+      var messageVal = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
+
+      var mailSubject = encodeURIComponent(subjectVal || 'Oleetzo Spice Enquiry');
+      var mailBody = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Sender Email: ' + userEmail + '\n\n' +
+        'Message:\n' + messageVal + '\n\n' +
+        '---\nSent via Oleetzo Spices Website'
+      );
+
+      var mailtoLink = 'mailto:oleetzo@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
+
       var note = document.getElementById('contactNote');
       if (note) {
-        note.textContent = 'Thank you - your message has been received. We will reply within one business day.';
+        note.textContent = 'Opening your email to send to oleetzo@gmail.com... Thank you!';
         note.classList.add('show');
       }
-      form.reset();
+
+      // Trigger user's mail client (Gmail / default mail app)
+      window.location.href = mailtoLink;
     });
   }
 });
