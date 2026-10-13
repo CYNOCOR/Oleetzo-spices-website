@@ -1,87 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Oleetzo</title>
-<meta name="description" content="Get in touch with Oleetzo for orders, wholesale enquiries and custom spice blends.">
-<link rel="icon" href="assets/images/logo-mark.png">
-<link rel="stylesheet" href="css/global.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact Us - Oleetzo Ceylon Spices</title>
+  <meta name="description" content="Get in touch with Oleetzo for orders, wholesale enquiries and custom spice blends.">
+  <meta name="theme-color" content="#1e0307">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta property="og:title" content="Contact - Oleetzo Ceylon Spices">
+  <meta property="og:description"
+    content="Get in touch with Oleetzo for orders, wholesale enquiries and custom spice blends.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/logo-mark.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/logo-mark.png">
+
+  <!-- Performance: Preconnect & Load Google Fonts asynchronously -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
+
+  <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body data-page="contact">
 
-<header id="site-header"></header>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<section class="page-banner" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=1600')">
-  <div class="wrap page-banner-content">
-    <p class="crumb">HOME / CONTACT</p>
-    <h1>Let's Talk Spice</h1>
-    <p>Retail orders, wholesale volumes, private label or a custom blend — tell us what you need.</p>
-  </div>
-</section>
+  <header id="site-header"></header>
 
-<section class="section-cream">
-  <div class="wrap contact-grid">
-
-    <div>
-      <p class="eyebrow">SEND A MESSAGE</p>
-      <h2>We usually reply within a day.</h2>
-      <hr class="gold-rule">
-      <form id="contactForm" style="margin-top:2rem;">
-        <div class="row2">
-          <div class="field">
-            <label for="name">Full name</label>
-            <input type="text" id="name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" required>
-          </div>
-        </div>
-        <div class="field">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" placeholder="Retail order, wholesale, custom blend...">
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" rows="6" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-gold">Send Message</button>
-        <p class="form-note" id="contactNote"></p>
-      </form>
+  <section class="page-banner"
+    style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=1600')">
+    <div class="wrap page-banner-content">
+      <p class="crumb">HOME / CONTACT</p>
+      <h1>Let's Talk Spice</h1>
+      <p>Retail orders, wholesale volumes, private label or a custom blend - tell us what you need.</p>
     </div>
+  </section>
 
-    <div>
-      <div class="info-card">
-        <h3 style="color:var(--ivory);">Reach Us Directly</h3>
-        <div class="info-row">
-          <span class="k">EMAIL</span>
-          <span class="v">hello@oleetzo.com</span>
-        </div>
-        <div class="info-row">
-          <span class="k">PHONE</span>
-          <span class="v">+94 XX XXX XXXX</span>
-        </div>
-        <div class="info-row">
-          <span class="k">STUDIO</span>
-          <span class="v">Sri Lanka</span>
-        </div>
-        <div class="info-row">
-          <span class="k">HOURS</span>
-          <span class="v">Mon – Sat, 9am – 6pm</span>
-        </div>
+  <section class="section-cream" id="main-content">
+    <div class="wrap contact-grid">
+
+      <div>
+        <p class="eyebrow">SEND A MESSAGE</p>
+        <h2>We usually reply within a day.</h2>
+        <hr class="gold-rule">
+        <form id="contactForm" style="margin-top:2rem;" aria-label="Contact Oleetzo">
+          <div class="row2">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Retail order, wholesale, custom blend...">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold">Send Message</button>
+          <p class="form-note" id="contactNote" role="status" aria-live="polite"></p>
+        </form>
       </div>
-      <iframe class="map-frame" loading="lazy" src="https://www.google.com/maps?q=Sri%20Lanka&output=embed" allowfullscreen></iframe>
-      <p class="footer-note" style="color:var(--ink-soft);margin-top:0.8rem;">Replace the phone number, email and map pin above with your exact business details before publishing.</p>
+
+      <div>
+        <div class="info-card">
+          <h3 style="color:var(--ivory);">Reach Us Directly</h3>
+          <div class="info-row">
+            <span class="k">EMAIL</span>
+            <span class="v"><a href="mailto:hello@oleetzo.com" style="color:inherit;text-decoration:underline;">hello@oleetzo.com</a></span>
+          </div>
+          <div class="info-row">
+            <span class="k">PHONE</span>
+            <span class="v"><a href="tel:+94112345678" style="color:inherit;">+94 11 234 5678</a></span>
+          </div>
+          <div class="info-row">
+            <span class="k">STUDIO</span>
+            <span class="v">Sri Lanka</span>
+          </div>
+          <div class="info-row">
+            <span class="k">HOURS</span>
+            <span class="v">Mon – Sat, 9am – 6pm</span>
+          </div>
+        </div>
+        <iframe class="map-frame" loading="lazy" src="https://www.google.com/maps?q=Sri%20Lanka&output=embed"
+          title="Oleetzo Location in Sri Lanka" allowfullscreen></iframe>
+        <p class="footer-note" style="color:var(--ink-soft);margin-top:0.8rem;">Direct harvest inquiries and scheduled garden tastings available upon prior request.</p>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <footer id="site-footer"></footer>
 
-<footer id="site-footer"></footer>
-
-<script src="js/header.js"></script>
-<script src="js/footer.js"></script>
-<script src="js/main.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

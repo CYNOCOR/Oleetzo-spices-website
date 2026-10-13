@@ -1,5 +1,5 @@
 /* =====================================================
-   OLEETZO — Ceylon Spices Master Data
+   OLEETZO - Ceylon Spices Master Data
    Comprehensive details for each single-origin spice & blend.
    ===================================================== */
 var SPICES_DATA = {
@@ -161,7 +161,7 @@ var SPICES_DATA = {
       "https://commons.wikimedia.org/wiki/Special:FilePath/Morocco%2C_Spices.JPG?width=800",
       "https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=800"
     ],
-    tagline: "Heavy, dark kernels rich in aromatic essential oils — essential for fresh microplane grating.",
+    tagline: "Heavy, dark kernels rich in aromatic essential oils - essential for fresh microplane grating.",
     overview: "Encased inside a yellow apricot-like fruit, nutmeg seeds are carefully harvested and cured until the inner kernel rattles freely within its shell. Our whole nutmeg kernels retain their glistening veins of essential oil, yielding an unforgettable sweet-savoury fragrance when freshly grated.",
     tastingNotes: ["Sweet Nutty", "Warm Pine", "Subtle Pepper", "Creamy Wood"],
     aromaLevel: "Warm & Musky (4/5)",

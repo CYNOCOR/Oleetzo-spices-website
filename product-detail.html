@@ -1,397 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spice Detail — Oleetzo Ceylon Spices</title>
-<meta name="description" content="Single-origin Ceylon spice detail, provenance, and craft harvest notes.">
-<link rel="icon" href="assets/images/logo-mark.png">
-<link rel="stylesheet" href="css/global.css">
-<style>
-/* Product Detail Page Custom Styling */
-.detail-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: start;
-  margin-top: 1rem;
-}
-@media (max-width: 900px) {
-  .detail-layout { grid-template-columns: 1fr; }
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Spice Detail - Oleetzo Ceylon Spices</title>
+  <meta name="description" content="Single-origin Ceylon spice detail, provenance, and craft harvest notes.">
+  <meta name="theme-color" content="#1e0307">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-.gallery-sticky {
-  position: sticky;
-  top: 6.5rem;
-}
-.main-photo-frame {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid var(--line-on-light);
-  box-shadow: var(--shadow-hover);
-  background: #fff;
-  position: relative;
-}
-.main-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-}
-.main-photo-frame:hover img {
-  transform: scale(1.06);
-}
+  <meta property="og:title" content="Spice Detail - Oleetzo Ceylon Spices">
+  <meta property="og:description" content="Single-origin Ceylon spice detail, provenance, and craft harvest notes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/logo-mark.png">
+  <meta name="twitter:card" content="summary_large_image">
 
-.thumb-row {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.2rem;
-}
-.thumb-btn {
-  width: 82px;
-  height: 82px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 2px solid transparent;
-  padding: 0;
-  background: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-soft);
-}
-.thumb-btn.active, .thumb-btn:hover {
-  border-color: var(--gold-500);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-gold);
-}
-.thumb-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  <link rel="icon" href="assets/images/logo-mark.png">
 
-.detail-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-.detail-category-pill {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  color: var(--wine-950);
-  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
-  padding: 0.35rem 1rem;
-  border-radius: var(--radius-pill);
-}
-.detail-origin-pill {
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  color: var(--gold-700);
-  border: 1px solid var(--gold-700);
-  padding: 0.3rem 0.85rem;
-  border-radius: var(--radius-pill);
-}
+  <!-- Performance: Preconnect & Load Google Fonts asynchronously -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
 
-.detail-title {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 0.8rem;
-}
-.detail-tagline {
-  font-size: 1.15rem;
-  color: var(--ink-soft);
-  line-height: 1.5;
-  margin-bottom: 1.8rem;
-}
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    /* Product Detail Page Custom Styling */
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(1.8rem, 4vw, 4rem);
+      align-items: start;
+      margin-top: 1rem;
+    }
 
-.tasting-chips {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  margin-top: 0.6rem;
-}
-.tasting-chip {
-  background: rgba(247, 230, 191, 0.4);
-  border: 1px solid rgba(182, 130, 42, 0.3);
-  color: var(--wine-950);
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.4rem 0.95rem;
-  border-radius: var(--radius-pill);
-}
+    @media (max-width: 920px) {
+      .detail-layout {
+        grid-template-columns: 1fr;
+      }
+    }
 
-.detail-box {
-  background: #fff;
-  border: 1px solid var(--line-on-light);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem 2rem;
-  margin-top: 1.8rem;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.detail-box:hover {
-  border-color: var(--gold-300);
-}
-.detail-box h4 {
-  font-family: var(--f-body);
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  color: var(--gold-700);
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-  font-weight: 600;
-}
+    .gallery-sticky {
+      position: sticky;
+      top: 6rem;
+    }
 
-.specs-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 0.5rem;
-}
-.specs-table tr {
-  border-bottom: 1px solid var(--line-on-light);
-}
-.specs-table tr:last-child { border-bottom: 0; }
-.specs-table td {
-  padding: 0.75rem 0;
-  font-size: 0.92rem;
-}
-.specs-table td.k {
-  color: var(--ink-soft);
-  font-weight: 500;
-  width: 40%;
-}
-.specs-table td.v {
-  color: var(--ink);
-  font-weight: 600;
-}
+    @media (max-width: 920px) {
+      .gallery-sticky {
+        position: static;
+      }
+    }
 
-.action-bar {
-  display: flex;
-  gap: 1.2rem;
-  margin-top: 2.4rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
+    .main-photo-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--line-on-light);
+      box-shadow: var(--shadow-hover);
+      background: #fff;
+      position: relative;
+    }
 
-.back-btn-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.6rem;
-  background: #fff;
-  border: 1px solid var(--line-on-light);
-  border-radius: var(--radius-pill);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--wine-950);
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 1.8rem;
-}
-.back-btn-pill:hover {
-  background: var(--wine-950);
-  color: var(--ivory);
-  border-color: var(--wine-950);
-  transform: translateX(-5px);
-  box-shadow: var(--shadow-hover);
-}
+    .main-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
 
-@media (max-width: 640px) {
-  .gallery-sticky { position: static; }
-  .thumb-row { gap: 0.6rem; overflow-x: auto; padding-bottom: 0.4rem; }
-  .thumb-btn { width: 64px; height: 64px; flex-shrink: 0; }
-  .detail-box { padding: 1.3rem 1.4rem; }
-  .action-bar { flex-direction: column; width: 100%; gap: 0.8rem; }
-  .action-bar .btn { width: 100%; justify-content: center; min-height: 48px; }
-  .specs-table td { font-size: 0.88rem; }
-}
-</style>
+    .main-photo-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    .thumb-row {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.4rem;
+    }
+
+    .thumb-btn {
+      width: clamp(64px, 8vw, 82px);
+      height: clamp(64px, 8vw, 82px);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid transparent;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-soft);
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .thumb-btn.active,
+    .thumb-btn:hover {
+      border-color: var(--gold-500);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .detail-category-pill {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--wine-950);
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .detail-origin-pill {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--gold-700);
+      border: 1px solid var(--gold-700);
+      padding: 0.3rem 0.85rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .detail-title {
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+
+    .detail-tagline {
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin-bottom: 1.6rem;
+    }
+
+    .tasting-chips {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+
+    .tasting-chip {
+      background: rgba(247, 230, 191, 0.45);
+      border: 1px solid rgba(182, 130, 42, 0.3);
+      color: var(--wine-950);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.95rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .detail-box {
+      background: #fff;
+      border: 1px solid var(--line-on-light);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.4rem, 2.5vw, 2rem);
+      margin-top: 1.6rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .detail-box:hover {
+      border-color: var(--gold-300);
+    }
+
+    .detail-box h4 {
+      font-family: var(--f-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      color: var(--gold-700);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+
+    .specs-table tr {
+      border-bottom: 1px solid var(--line-on-light);
+    }
+
+    .specs-table tr:last-child {
+      border-bottom: 0;
+    }
+
+    .specs-table td {
+      padding: 0.75rem 0;
+      font-size: 0.92rem;
+      vertical-align: top;
+    }
+
+    .specs-table td.k {
+      color: var(--ink-soft);
+      font-weight: 500;
+      width: 42%;
+      padding-right: 0.8rem;
+    }
+
+    .specs-table td.v {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .back-btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.6rem;
+      background: #fff;
+      border: 1px solid var(--line-on-light);
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--wine-950);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 1.6rem;
+      min-height: 44px;
+    }
+
+    .back-btn-pill:hover {
+      background: var(--wine-950);
+      color: var(--ivory);
+      border-color: var(--wine-950);
+      transform: translateX(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    @media (max-width: 640px) {
+      .action-bar {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+      }
+
+      .action-bar .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+      }
+
+      .specs-table td {
+        font-size: 0.88rem;
+      }
+    }
+  </style>
 </head>
+
 <body data-page="product-detail">
 
-<header id="site-header"></header>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<section class="section-cream" style="padding-top: 7.5rem;">
-  <div class="wrap">
-    
-    <a href="products.html" class="back-btn-pill" id="backToPantryBtn">
-      &larr; Back to Spices Pantry
-    </a>
+  <header id="site-header"></header>
 
-    <div class="detail-layout">
-      <!-- Left: Photo Gallery -->
-      <div class="gallery-sticky">
-        <div class="main-photo-frame">
-          <img id="detailMainImg" src="" alt="Spice photo" class="ext-img">
-        </div>
-        <div class="thumb-row" id="detailThumbRow"></div>
-      </div>
+  <section class="section-cream" id="main-content" style="padding-top: clamp(6.5rem, 12vh, 8rem);">
+    <div class="wrap">
 
-      <!-- Right: Detailed Content -->
-      <div>
-        <div class="detail-badge-row">
-          <span class="detail-category-pill" id="detailCategory">SPICE</span>
-          <span class="detail-origin-pill" id="detailOrigin">Sri Lanka</span>
+      <a href="products.html" class="back-btn-pill" id="backToPantryBtn">
+        &larr; Back to Spices Pantry
+      </a>
+
+      <div class="detail-layout">
+        <!-- Left: Photo Gallery -->
+        <div class="gallery-sticky">
+          <div class="main-photo-frame">
+            <img id="detailMainImg" src="" alt="Spice photo" class="ext-img" width="700" height="700" decoding="async">
+          </div>
+          <div class="thumb-row" id="detailThumbRow"></div>
         </div>
 
-        <h1 class="detail-title" id="detailName">Spice Name</h1>
-        <p class="detail-tagline" id="detailTagline">Spice tagline</p>
+        <!-- Right: Detailed Content -->
+        <div>
+          <div class="detail-badge-row">
+            <span class="detail-category-pill" id="detailCategory">SPICE</span>
+            <span class="detail-origin-pill" id="detailOrigin">Sri Lanka</span>
+          </div>
 
-        <div class="gold-rule"></div>
+          <h1 class="detail-title" id="detailName">Spice Name</h1>
+          <p class="detail-tagline" id="detailTagline">Spice tagline</p>
 
-        <div class="detail-box reveal">
-          <h4>Provenance & Overview</h4>
-          <p id="detailOverview" style="font-size:1.02rem;color:var(--ink);line-height:1.65;"></p>
-        </div>
+          <div class="gold-rule"></div>
 
-        <div class="detail-box reveal">
-          <h4>Tasting Profile & Aroma</h4>
-          <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:0.6rem;">Key flavor notes detected on first aroma & palate:</p>
-          <div class="tasting-chips" id="detailTastingNotes"></div>
-          
-          <div style="margin-top:1.2rem;display:flex;align-items:center;gap:1rem;">
-            <span style="font-size:0.85rem;color:var(--ink-soft);font-weight:500;">Aroma Intensity:</span>
-            <span id="detailAromaLevel" style="font-size:0.92rem;font-weight:600;color:var(--wine-800);"></span>
+          <div class="detail-box reveal">
+            <h4>Provenance &amp; Overview</h4>
+            <p id="detailOverview" style="font-size:1.02rem;color:var(--ink);line-height:1.65;"></p>
+          </div>
+
+          <div class="detail-box reveal">
+            <h4>Tasting Profile &amp; Aroma</h4>
+            <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:0.6rem;">Key flavor notes detected on first
+              aroma &amp; palate:</p>
+            <div class="tasting-chips" id="detailTastingNotes"></div>
+
+            <div style="margin-top:1.2rem;display:flex;align-items:center;gap:1rem;">
+              <span style="font-size:0.85rem;color:var(--ink-soft);font-weight:500;">Aroma Intensity:</span>
+              <span id="detailAromaLevel" style="font-size:0.92rem;font-weight:600;color:var(--wine-800);"></span>
+            </div>
+          </div>
+
+          <div class="detail-box reveal">
+            <h4>Best Culinary Uses</h4>
+            <p id="detailBestFor" style="font-size:0.98rem;color:var(--ink);line-height:1.55;"></p>
+          </div>
+
+          <div class="detail-box reveal">
+            <h4>Harvest &amp; Craft Process</h4>
+            <p id="detailProcess" style="font-size:0.95rem;color:var(--ink-soft);line-height:1.6;"></p>
+          </div>
+
+          <div class="detail-box reveal">
+            <h4>Product Specifications</h4>
+            <table class="specs-table" id="detailSpecsTable"></table>
+          </div>
+
+          <div class="action-bar reveal">
+            <a class="btn btn-gold" id="enquireSpiceBtn" href="contact.html">Enquire / Order This Spice</a>
+            <a class="btn btn-line-dark" href="products.html">Browse All Pantry Items</a>
           </div>
         </div>
-
-        <div class="detail-box reveal">
-          <h4>Best Culinary Uses</h4>
-          <p id="detailBestFor" style="font-size:0.98rem;color:var(--ink);line-height:1.5;"></p>
-        </div>
-
-        <div class="detail-box reveal">
-          <h4>Harvest & Craft Process</h4>
-          <p id="detailProcess" style="font-size:0.95rem;color:var(--ink-soft);line-height:1.6;"></p>
-        </div>
-
-        <div class="detail-box reveal">
-          <h4>Product Specifications</h4>
-          <table class="specs-table" id="detailSpecsTable"></table>
-        </div>
-
-        <div class="action-bar reveal">
-          <a class="btn btn-gold" id="enquireSpiceBtn" href="contact.html">Enquire / Order This Spice</a>
-          <a class="btn btn-line-dark" href="products.html">Browse All Pantry Items</a>
-        </div>
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- ================= RELATED SPICES ================= -->
-<section class="section-dark">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">EXPLORE MORE</p>
-        <h2>Pairing & Complementary Spices</h2>
+  <!-- ================= RELATED SPICES ================= -->
+  <section class="section-dark">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">EXPLORE MORE</p>
+          <h2>Pairing &amp; Complementary Spices</h2>
+        </div>
+        <a class="btn btn-line" href="products.html">View Full Collection &rarr;</a>
       </div>
-      <a class="btn btn-line" href="products.html">View Full Collection &rarr;</a>
+      <div class="spice-grid" id="relatedSpicesGrid"></div>
     </div>
-    <div class="spice-grid" id="relatedSpicesGrid"></div>
-  </div>
-</section>
+  </section>
 
-<footer id="site-footer"></footer>
+  <footer id="site-footer"></footer>
 
-<script src="js/spices-data.js"></script>
-<script src="js/header.js"></script>
-<script src="js/footer.js"></script>
-<script src="js/main.js"></script>
+  <script src="js/spices-data.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/main.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  var params = new URLSearchParams(window.location.search);
-  var spiceId = params.get('id') || 'cinnamon';
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var params = new URLSearchParams(window.location.search);
+      var spiceId = params.get('id') || 'cinnamon';
 
-  var spice = SPICES_DATA[spiceId] || SPICES_DATA['cinnamon'];
+      var spice = SPICES_DATA[spiceId] || SPICES_DATA['cinnamon'];
 
-  document.title = spice.name + ' — Oleetzo Ceylon Spices';
+      document.title = spice.name + ' - Oleetzo Ceylon Spices';
 
-  document.getElementById('detailCategory').textContent = spice.category;
-  document.getElementById('detailOrigin').textContent = spice.origin;
-  document.getElementById('detailName').textContent = spice.name;
-  document.getElementById('detailTagline').textContent = spice.tagline;
+      document.getElementById('detailCategory').textContent = spice.category;
+      document.getElementById('detailOrigin').textContent = spice.origin;
+      document.getElementById('detailName').textContent = spice.name;
+      document.getElementById('detailTagline').textContent = spice.tagline;
 
-  var mainImg = document.getElementById('detailMainImg');
-  mainImg.src = spice.image;
-  mainImg.alt = spice.name;
+      var mainImg = document.getElementById('detailMainImg');
+      mainImg.src = spice.image;
+      mainImg.alt = spice.name;
 
-  var thumbRow = document.getElementById('detailThumbRow');
-  thumbRow.innerHTML = '';
-  if(spice.gallery && spice.gallery.length){
-    spice.gallery.forEach(function(imgUrl, idx){
-      var btn = document.createElement('button');
-      btn.className = 'thumb-btn' + (idx === 0 ? ' active' : '');
-      btn.innerHTML = '<img src="' + imgUrl + '" alt="' + spice.name + ' thumbnail ' + (idx+1) + '" class="ext-img">';
-      btn.addEventListener('click', function(){
-        thumbRow.querySelectorAll('.thumb-btn').forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        mainImg.style.opacity = '0.3';
-        setTimeout(function(){
-          mainImg.src = imgUrl;
-          mainImg.style.opacity = '1';
-        }, 150);
+      var thumbRow = document.getElementById('detailThumbRow');
+      thumbRow.innerHTML = '';
+      if (spice.gallery && spice.gallery.length) {
+        spice.gallery.forEach(function (imgUrl, idx) {
+          var btn = document.createElement('button');
+          btn.className = 'thumb-btn' + (idx === 0 ? ' active' : '');
+          btn.setAttribute('aria-label', 'View photo ' + (idx + 1));
+          btn.innerHTML = '<img src="' + imgUrl + '" alt="' + spice.name + ' thumbnail ' + (idx + 1) + '" class="ext-img" loading="lazy" decoding="async" width="80" height="80">';
+          btn.addEventListener('click', function () {
+            thumbRow.querySelectorAll('.thumb-btn').forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            mainImg.style.opacity = '0.3';
+            setTimeout(function () {
+              mainImg.src = imgUrl;
+              mainImg.style.opacity = '1';
+            }, 120);
+          });
+          thumbRow.appendChild(btn);
+        });
+      }
+
+      document.getElementById('detailOverview').textContent = spice.overview;
+
+      var tastingBox = document.getElementById('detailTastingNotes');
+      tastingBox.innerHTML = '';
+      if (spice.tastingNotes) {
+        spice.tastingNotes.forEach(function (note) {
+          var chip = document.createElement('span');
+          chip.className = 'tasting-chip';
+          chip.textContent = '✦ ' + note;
+          tastingBox.appendChild(chip);
+        });
+      }
+
+      document.getElementById('detailAromaLevel').textContent = spice.aromaLevel || 'High';
+      document.getElementById('detailBestFor').textContent = spice.bestFor;
+      document.getElementById('detailProcess').textContent = spice.process;
+
+      var specsTable = document.getElementById('detailSpecsTable');
+      specsTable.innerHTML = '';
+      if (spice.specs) {
+        for (var k in spice.specs) {
+          var tr = document.createElement('tr');
+          tr.innerHTML = '<td class="k">' + k + '</td><td class="v">' + spice.specs[k] + '</td>';
+          specsTable.appendChild(tr);
+        }
+      }
+
+      var enquireBtn = document.getElementById('enquireSpiceBtn');
+      enquireBtn.href = 'contact.html?spice=' + encodeURIComponent(spice.name);
+
+      var relatedGrid = document.getElementById('relatedSpicesGrid');
+      relatedGrid.innerHTML = '';
+      var keys = Object.keys(SPICES_DATA).filter(function (k) { return k !== spice.id; });
+      var relatedKeys = keys.slice(0, 4);
+      relatedKeys.forEach(function (key) {
+        var item = SPICES_DATA[key];
+        var card = document.createElement('div');
+        card.className = 'spice-card reveal';
+        card.innerHTML =
+          '<a href="product-detail.html?id=' + item.id + '" aria-label="View ' + item.name + ' details">' +
+          '<div class="frame"><img class="ext-img" loading="lazy" decoding="async" width="700" height="700" src="' + item.image + '" alt="' + item.name + '"></div>' +
+          '<h3>' + item.name + '</h3>' +
+          '<p class="origin">' + item.origin + '</p>' +
+          '</a>';
+        relatedGrid.appendChild(card);
       });
-      thumbRow.appendChild(btn);
     });
-  }
-
-  document.getElementById('detailOverview').textContent = spice.overview;
-
-  var tastingBox = document.getElementById('detailTastingNotes');
-  tastingBox.innerHTML = '';
-  if(spice.tastingNotes){
-    spice.tastingNotes.forEach(function(note){
-      var chip = document.createElement('span');
-      chip.className = 'tasting-chip';
-      chip.textContent = '✦ ' + note;
-      tastingBox.appendChild(chip);
-    });
-  }
-
-  document.getElementById('detailAromaLevel').textContent = spice.aromaLevel || 'High';
-  document.getElementById('detailBestFor').textContent = spice.bestFor;
-  document.getElementById('detailProcess').textContent = spice.process;
-
-  var specsTable = document.getElementById('detailSpecsTable');
-  specsTable.innerHTML = '';
-  if(spice.specs){
-    for(var k in spice.specs){
-      var tr = document.createElement('tr');
-      tr.innerHTML = '<td class="k">' + k + '</td><td class="v">' + spice.specs[k] + '</td>';
-      specsTable.appendChild(tr);
-    }
-  }
-
-  var enquireBtn = document.getElementById('enquireSpiceBtn');
-  enquireBtn.href = 'contact.html?spice=' + encodeURIComponent(spice.name);
-
-  var relatedGrid = document.getElementById('relatedSpicesGrid');
-  relatedGrid.innerHTML = '';
-  var keys = Object.keys(SPICES_DATA).filter(function(k){ return k !== spice.id; });
-  var relatedKeys = keys.slice(0, 4);
-  relatedKeys.forEach(function(key){
-    var item = SPICES_DATA[key];
-    var card = document.createElement('div');
-    card.className = 'spice-card reveal';
-    card.innerHTML =
-      '<a href="product-detail.html?id=' + item.id + '">' +
-        '<div class="frame"><img class="ext-img" loading="lazy" src="' + item.image + '" alt="' + item.name + '"></div>' +
-        '<h3>' + item.name + '</h3>' +
-        '<p class="origin">' + item.origin + '</p>' +
-      '</a>';
-    relatedGrid.appendChild(card);
-  });
-});
-</script>
+  </script>
 </body>
+
 </html>
