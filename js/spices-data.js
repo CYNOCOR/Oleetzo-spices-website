@@ -19,8 +19,8 @@ var SPICES_DATA = {
     image: "assets/images/products/chillie-powder.jpg",
     gallery: [
       "assets/images/products/chillie-powder.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum_-_red_chili_chilli_-_piment_rouge_-_roter_Chili_01.jpg?width=800",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Bengali_spices.JPG?width=800"
+      "assets/images/products/chillie-powder-lifestyle.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum_-_red_chili_chilli_-_piment_rouge_-_roter_Chili_01.jpg?width=800"
     ],
     tagline: "Fiery, sun-dried Ceylon red chilli powder with vibrant crimson warmth and explosive aromatic heat.",
     overview: "Crafted from hand-selected, vine-ripened red chillies cultivated in the mineral-rich soils of Sri Lanka. Traditional sun-curing on raised rush mats preserves their volatile natural capsaicin and distinctive fruity undertones. Stone-milled to perfection and packaged in our signature 1 kg protective aroma-lock pack adorned with authentic Sri Lankan traditional Raksha artwork.",
@@ -52,8 +52,8 @@ var SPICES_DATA = {
     image: "assets/images/products/chillie-flakes.jpg",
     gallery: [
       "assets/images/products/chillie-flakes.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum_-_red_chili_chilli_-_piment_rouge_-_roter_Chili_01.jpg?width=800",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=800"
+      "assets/images/products/chillie-flakes-lifestyle.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum_-_red_chili_chilli_-_piment_rouge_-_roter_Chili_01.jpg?width=800"
     ],
     tagline: "Coarsely crushed sun-dried red chillies and golden seeds delivering crisp texture and instant fiery punch.",
     overview: "Our crushed chilli flakes are coarsely milled from whole sun-dried red chillies with golden seeds intact. Delivering crisp texture, mouthwatering seed warmth, and immediate sizzling punch, Oleetzo Chillie Flakes are an indispensable staple in Sri Lankan street food, devilled favourites, and modern gourmet kitchens.",
@@ -85,8 +85,8 @@ var SPICES_DATA = {
     image: "assets/images/products/black-pepper.jpg",
     gallery: [
       "assets/images/products/black-pepper.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_IMG_4866_-_02.jpg?width=800",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Bengali_spices.JPG?width=800"
+      "assets/images/products/black-pepper-lifestyle.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_IMG_4866_-_02.jpg?width=800"
     ],
     tagline: "Highland Ceylon black pepper renowned globally for unmatched piperine potency and deep citrus-pine bite.",
     overview: "Sri Lankan highland black pepper is prized globally as the gold standard of pepper due to its extraordinarily dense piperine content (6.8%+). Hand-harvested berry by berry from the misty central hills, then sun-cured until deeply wrinkled and dark obsidian black. Oleetzo Black Pepper delivers an unmistakable, multi-layered warmth with bright floral and pine undertones.",
@@ -117,8 +117,8 @@ var SPICES_DATA = {
     image: "assets/images/products/curry-powder.jpg",
     gallery: [
       "assets/images/products/curry-powder.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Bengali_spices.JPG?width=800",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=800"
+      "assets/images/products/curry-powder-lifestyle.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Bengali_spices.JPG?width=800"
     ],
     tagline: "The golden hallmark of Ceylon cuisine — a fragrant unroasted blend of coriander, cumin, sweet fennel, cinnamon and turmeric.",
     overview: "Known traditionally as 'Amu Thuna Paha' (Raw Curry Powder), this golden blend forms the soul of delicate Sri Lankan cooking. Unroasted coriander seeds, cumin, sweet fennel, pure Ceylon cinnamon quills, cardamom pods, turmeric, and dried curry leaves are cold-stone ground gently without heat so their volatile floral aromatics remain alive and intact.",
@@ -149,8 +149,8 @@ var SPICES_DATA = {
     image: "assets/images/products/roasted-curry-powder.jpg",
     gallery: [
       "assets/images/products/roasted-curry-powder.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=800",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Morocco%2C_Spices.JPG?width=800"
+      "assets/images/products/roasted-curry-powder-lifestyle.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=800"
     ],
     tagline: "Deep mahogany roasted spice blend slow pan-roasted to perfection — the rich, smoky soul of Ceylon dark curries.",
     overview: "The revered 'Badapu Thuna Paha' is Sri Lanka's culinary masterpiece. Hand-selected coriander, cumin, black pepper, mustard seeds, cardamom, cinnamon, and fresh curry leaves with toasted raw rice are slow-roasted individually in heavy iron skillets until dark mahogany-brown. It yields an irresistible, smoky, and complex aromatic depth that defines authentic Sri Lankan red and dark curries.",
@@ -181,7 +181,10 @@ var SPICES_DATA = {
     categoryKey: "chilli",
     origin: "Southern & Central Valleys, Sri Lanka",
     image: "assets/images/products/chillie-powder.jpg",
-    gallery: ["assets/images/products/chillie-powder.jpg"],
+    gallery: [
+      "assets/images/products/chillie-powder.jpg",
+      "assets/images/products/chillie-powder-lifestyle.jpg"
+    ],
     tagline: "Fiery, sun-dried Ceylon red chilli powder with vibrant crimson warmth and explosive aromatic heat.",
     overview: "Crafted from hand-selected, vine-ripened red chillies cultivated in Sri Lanka. Packaged in our signature 1 kg protective pack.",
     tastingNotes: ["Intense Fiery Heat", "Sun-Ripened Berry", "Smoky Paprika"],
@@ -200,7 +203,10 @@ var SPICES_DATA = {
     categoryKey: "pepper",
     origin: "Matale & Kandy Highlands, Sri Lanka",
     image: "assets/images/products/black-pepper.jpg",
-    gallery: ["assets/images/products/black-pepper.jpg"],
+    gallery: [
+      "assets/images/products/black-pepper.jpg",
+      "assets/images/products/black-pepper-lifestyle.jpg"
+    ],
     tagline: "Highland Ceylon black pepper renowned globally for unmatched piperine potency.",
     overview: "Sri Lankan highland black pepper is prized globally as the gold standard of pepper.",
     tastingNotes: ["Sharp Pungency", "Pine & Citrus Resins", "Fruity Warmth"],
