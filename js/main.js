@@ -189,4 +189,91 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = mailtoLink;
     });
   }
+
+  /* ---- 7. Ambient Falling Spices Shower (Uda idan pahalata lassanata watena widihata) ---- */
+  var fallingOverlay = document.getElementById('fallingSpicesOverlay');
+  if (fallingOverlay) {
+    var spiceTypes = [
+      { id: 'falling-anise', baseSize: 28, maxVar: 8 },
+      { id: 'falling-chilli', baseSize: 26, maxVar: 8 },
+      { id: 'falling-cardamom', baseSize: 22, maxVar: 6 },
+      { id: 'falling-cinnamon', baseSize: 24, maxVar: 6 },
+      { id: 'falling-clove', baseSize: 20, maxVar: 5 },
+      { id: 'falling-pepper', baseSize: 20, maxVar: 6 },
+      { id: 'falling-fleck', baseSize: 14, maxVar: 6 }
+    ];
+
+    var isMobile = window.innerWidth <= 768;
+    var particleCount = isMobile ? 14 : 26;
+    fallingOverlay.innerHTML = '';
+
+    for (var i = 0; i < particleCount; i++) {
+      var spice = spiceTypes[i % spiceTypes.length];
+      var size = spice.baseSize + Math.floor(Math.random() * spice.maxVar);
+
+      // Distribute evenly horizontally with subtle natural jitter
+      var baseLeft = (i / particleCount) * 94 + 3;
+      var leftJitter = (Math.random() * 8) - 4;
+      var leftPos = Math.max(2, Math.min(96, baseLeft + leftJitter));
+
+      // Varied falling speeds: between 12s and 20s
+      var duration = 12 + Math.random() * 8;
+      // Staggered negative delays so particles are ALREADY falling everywhere at different heights
+      var delay = -((Math.random() * duration)).toFixed(2);
+
+      // Random 3D swaying amounts (eha meha wena widiha)
+      var sway1 = Math.round(18 + Math.random() * 24);
+      var sway2 = -Math.round(18 + Math.random() * 24);
+      var sway3 = Math.round(12 + Math.random() * 20);
+      var sway4 = -Math.round(10 + Math.random() * 18);
+
+      // Rotations
+      var rot1 = Math.round(60 + Math.random() * 45);
+      var rot2 = Math.round(150 + Math.random() * 45);
+      var rot3 = Math.round(240 + Math.random() * 45);
+      var rot4 = 360;
+      var baseRot = Math.round(Math.random() * 360);
+
+      var opacity = (0.50 + Math.random() * 0.28).toFixed(2);
+
+      var particle = document.createElement('div');
+      particle.className = 'falling-spice-particle' + (i >= 14 ? ' hide-on-mobile' : '');
+      particle.style.left = leftPos.toFixed(1) + 'vw';
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.setProperty('--fall-duration', duration.toFixed(1) + 's');
+      particle.style.setProperty('--fall-delay', delay + 's');
+      particle.style.setProperty('--target-opacity', opacity);
+      particle.style.setProperty('--sway-1', sway1 + 'px');
+      particle.style.setProperty('--sway-2', sway2 + 'px');
+      particle.style.setProperty('--sway-3', sway3 + 'px');
+      particle.style.setProperty('--sway-4', sway4 + 'px');
+      particle.style.setProperty('--rot-1', rot1 + 'deg');
+      particle.style.setProperty('--rot-2', rot2 + 'deg');
+      particle.style.setProperty('--rot-3', rot3 + 'deg');
+      particle.style.setProperty('--rot-4', rot4 + 'deg');
+      particle.style.setProperty('--base-rot', baseRot + 'deg');
+
+      particle.innerHTML = '<svg viewBox="0 0 50 50"><use href="#' + spice.id + '"/></svg>';
+      fallingOverlay.appendChild(particle);
+    }
+
+    // Gentle cursor wind effect: particles sway subtly when mouse moves across screen
+    if (window.matchMedia('(pointer: fine)').matches) {
+      var mouseWindX = 0;
+      var currentWindX = 0;
+      window.addEventListener('mousemove', function (e) {
+        mouseWindX = (e.clientX / window.innerWidth - 0.5) * 45;
+      }, { passive: true });
+
+      function tickWind() {
+        currentWindX += (mouseWindX - currentWindX) * 0.05;
+        fallingOverlay.style.transform = 'translateX(' + currentWindX.toFixed(1) + 'px)';
+        requestAnimationFrame(tickWind);
+      }
+      requestAnimationFrame(tickWind);
+    }
+  }
 });
+
+
