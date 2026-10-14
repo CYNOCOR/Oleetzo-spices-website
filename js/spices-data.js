@@ -169,6 +169,38 @@ var SPICES_DATA = {
     }
   },
 
+  "turmeric-powder": {
+    id: "turmeric-powder",
+    name: "Oleetzo Turmeric Powder",
+    netWeight: "1 kg",
+    category: "GROUND SPICE",
+    categoryKey: "turmeric",
+    origin: "Kegalle & Central Valleys, Sri Lanka",
+    altitude: "Sun-Cured Valley Plains",
+    harvest: "Annual Peak Curcumin Harvest",
+    image: "assets/images/products/turmeric-powder.jpg",
+    gallery: [
+      "assets/images/products/turmeric-powder.jpg",
+      "assets/images/products/turmeric-powder-lifestyle.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Curcuma_longa_roots.jpg?width=800"
+    ],
+    tagline: "Vibrant golden-amber Ceylon turmeric with exceptionally high natural curcumin, slow stone-milled for rich earthy aroma.",
+    overview: "Sourced from the mineral-rich soils of Sri Lanka's Kegalle and Central valleys, our heirloom turmeric roots mature underground before being hand-dug at peak potency. Washed in fresh spring water, sun-cured on raised bamboo rush mats, and slowly stone-milled to protect its volatile essential oils and high curcumin content. Sealed in our signature 1 kg protective aroma-lock pack adorned with authentic Sri Lankan traditional Raksha artwork.",
+    tastingNotes: ["Earthy Warmth", "Bright Ginger Zing", "Musky Pepper", "Golden Citrus"],
+    aromaLevel: "Deep & Earthy (5/5)",
+    bestFor: "Authentic Sri Lankan curries, golden milk lattes, turmeric yellow rice, lentil & vegetable stews, marinades & everyday immune wellness",
+    process: "Hand-harvested mature roots, spring water washed, sun-cured on raised bamboo frames, and cold stone-milled to preserve active curcumin.",
+    specs: {
+      "Pack Weight": "1 kg (Net Wt)",
+      "Botanical Name": "Curcuma longa",
+      "Curcumin Content": "5.2%+ (High Potency Ceylon Grade)",
+      "Purity": "100% Pure Ceylon Turmeric (No Fillers / No Added Colour)",
+      "Origin": "Sri Lanka Authentic",
+      "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
+      "Shelf Life": "24 Months"
+    }
+  },
+
   /* ===================================================
      COMPATIBILITY ALIASES & HERITAGE SINGLE-ORIGIN SPICES
      =================================================== */
@@ -216,6 +248,28 @@ var SPICES_DATA = {
     specs: { "Pack Weight": "1 kg", "Origin": "Sri Lanka" }
   },
 
+  "turmeric": {
+    id: "turmeric",
+    aliasOf: "turmeric-powder",
+    name: "Oleetzo Turmeric Powder",
+    netWeight: "1 kg",
+    category: "GROUND SPICE",
+    categoryKey: "turmeric",
+    origin: "Kegalle & Central Valleys, Sri Lanka",
+    image: "assets/images/products/turmeric-powder.jpg",
+    gallery: [
+      "assets/images/products/turmeric-powder.jpg",
+      "assets/images/products/turmeric-powder-lifestyle.jpg"
+    ],
+    tagline: "Vibrant golden-amber Ceylon turmeric with high natural curcumin, stone-milled in small batches.",
+    overview: "Sourced from the fertile, iron-rich soil of Kegalle Valley. Packaged in our signature 1 kg protective pack.",
+    tastingNotes: ["Earthy Warmth", "Bright Ginger", "Musky Pepper", "Golden Citrus"],
+    aromaLevel: "Deep & Earthy (5/5)",
+    bestFor: "Golden milk, curry bases, roasted vegetables, rice dishes & wellness",
+    process: "Hand-harvested roots, sun-dried, and stone-ground.",
+    specs: { "Pack Weight": "1 kg", "Origin": "Sri Lanka" }
+  },
+
   "cinnamon": {
     id: "cinnamon",
     name: "Ceylon Cinnamon Quills",
@@ -242,35 +296,6 @@ var SPICES_DATA = {
       "Origin": "Matale Highlands",
       "Packaging": "Airtight Glass Jar with Cork Seal",
       "Shelf Life": "24 Months"
-    }
-  },
-
-  "turmeric": {
-    id: "turmeric",
-    name: "Stone-Milled Turmeric",
-    netWeight: "Glass Jar",
-    category: "GROUND SPICE",
-    categoryKey: "ground",
-    origin: "Kegalle Valley, Sri Lanka",
-    altitude: "250m – 450m Elevation",
-    harvest: "January – March Harvest",
-    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Turmeric-powder.jpg?width=1200",
-    gallery: [
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Turmeric-powder.jpg?width=800",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Curcuma_longa_roots.jpg?width=800"
-    ],
-    tagline: "Vibrant golden-amber turmeric with high natural curcumin, stone-milled in small batches.",
-    overview: "Sourced from the fertile, iron-rich soil of Kegalle Valley, our heirloom turmeric roots are allowed to mature fully underground before being hand-dug.",
-    tastingNotes: ["Earthy Warmth", "Bright Ginger", "Musky Pepper", "Golden Citrus"],
-    aromaLevel: "Deep & Earthy (5/5)",
-    bestFor: "Golden milk lattes, curry bases, roasted vegetables, rice dishes & wellness tonics",
-    process: "Hand-harvested roots, boiled in pure spring water, sun-dried on bamboo frames, and stone-ground.",
-    specs: {
-      "Botanical Name": "Curcuma longa",
-      "Curcumin Content": "5.2% (High Potency)",
-      "Origin": "Kegalle, Sri Lanka",
-      "Packaging": "UV-Protected Glass Jar",
-      "Shelf Life": "18 Months"
     }
   },
 

@@ -2566,14 +2566,20 @@ section {
    ===================================================== */
 .products-collection-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
   margin-top: 2.2rem;
 }
-@media (max-width: 1200px) {
+@media (min-width: 1400px) {
+  .products-collection-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
+  }
+}
+@media (max-width: 1100px) {
   .products-collection-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
 }
 @media (max-width: 768px) {
