@@ -21,6 +21,11 @@
   <link rel="stylesheet" href="css/global.css">
 
   <style>
+    html, body {
+      overflow-x: clip !important;
+      overflow-y: visible !important;
+    }
+
     .detail-layout {
       display: grid;
       grid-template-columns: 1fr 1.1fr;
@@ -33,11 +38,28 @@
       .detail-layout {
         grid-template-columns: 1fr;
       }
+      .gallery-sticky {
+        position: static !important;
+      }
     }
 
     .gallery-sticky {
+      position: -webkit-sticky;
       position: sticky;
-      top: 6.5rem;
+      top: clamp(4.5rem, 7vh, 5.8rem);
+      align-self: start;
+      z-index: 25;
+      will-change: transform;
+    }
+
+    @media (max-height: 760px) and (min-width: 901px) {
+      .gallery-sticky {
+        top: 4.2rem;
+      }
+      .main-photo-frame {
+        max-width: 320px;
+        max-height: 456px;
+      }
     }
 
     .main-photo-frame {
@@ -376,6 +398,167 @@
         font-size: 0.88rem;
       }
     }
+
+    /* ===================================================
+       LUXURY PAIRING & COMPLEMENTARY SPICES STYLES
+       =================================================== */
+    .pairing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(1.4rem, 2.5vw, 2.2rem);
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 1100px) {
+      .pairing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pairing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+    }
+
+    .pairing-card {
+      background: linear-gradient(160deg, rgba(38, 5, 10, 0.72), rgba(16, 2, 4, 0.92));
+      border: 1.2px solid rgba(238, 201, 122, 0.22);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.55);
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .pairing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+      opacity: 0.4;
+      transition: opacity 0.4s ease;
+    }
+
+    .pairing-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(238, 201, 122, 0.65);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.75), 0 0 24px rgba(238, 201, 122, 0.2);
+    }
+
+    .pairing-card:hover::before {
+      opacity: 1;
+    }
+
+    .pairing-card .pairing-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2 / 2.85;
+      max-height: 250px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(238, 201, 122, 0.3);
+      background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pairing-card .pairing-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pairing-card:hover .pairing-frame img {
+      transform: scale(1.06);
+    }
+
+    .pairing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-300);
+      background: rgba(238, 201, 122, 0.12);
+      border: 1px solid rgba(238, 201, 122, 0.32);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
+      line-height: 1.3;
+    }
+
+    .pairing-title {
+      font-family: var(--f-serif);
+      font-size: 1.32rem;
+      color: var(--ivory);
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+      transition: color 0.3s ease;
+    }
+
+    .pairing-card:hover .pairing-title {
+      color: var(--gold-100);
+    }
+
+    .pairing-meta {
+      font-size: 0.78rem;
+      color: var(--gold-500);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .pairing-note {
+      font-size: 0.88rem;
+      color: rgba(247, 243, 235, 0.84);
+      line-height: 1.58;
+      margin-bottom: 1.3rem;
+      flex-grow: 1;
+    }
+
+    .pairing-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--gold-300);
+      background: rgba(28, 3, 6, 0.75);
+      border: 1.5px solid rgba(238, 201, 122, 0.45);
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: all 0.35s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .pairing-card:hover .pairing-cta {
+      background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+      color: var(--wine-950);
+      border-color: var(--gold-300);
+      box-shadow: 0 6px 18px rgba(238, 201, 122, 0.35);
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 
@@ -487,16 +670,19 @@
     </div>
   </section>
 
-  <!-- ================= RELATED SPICES ================= -->
-  <section class="section-dark">
+  <!-- ================= PAIRING & COMPLEMENTARY SPICES ================= -->
+  <section class="section-dark" style="position:relative;overflow:hidden;border-top:1px solid rgba(238,201,122,0.2);padding: clamp(3.5rem, 6vw, 5.5rem) 0;">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" style="margin-bottom: 2rem;">
         <div>
-          <p class="eyebrow">EXPLORE MORE</p>
-          <h2>Pairing &amp; Complementary Spices</h2>
+          <p class="eyebrow" style="color:var(--gold-400);letter-spacing:0.18em;margin-bottom:0.4rem;">EXPLORE MORE</p>
+          <h2 style="color:var(--ivory);font-size:clamp(2rem, 3.5vw, 2.8rem);">Pairing &amp; Complementary Spices</h2>
+          <p class="section-desc" id="pairingSectionDesc" style="color:rgba(247,243,235,0.78);max-width:740px;margin-top:0.6rem;font-size:1.02rem;line-height:1.65;">
+            Discover curated single-origin Ceylon spices that harmonize naturally with Oleetzo <span id="pairingCurrentSpiceName" style="color:var(--gold-300);font-weight:600;"></span> to elevate aromatic depth, balance heat, and achieve authentic Sri Lankan flavor harmony.
+          </p>
         </div>
       </div>
-      <div class="spice-grid" id="relatedSpicesGrid"></div>
+      <div class="pairing-grid" id="relatedSpicesGrid"></div>
     </div>
   </section>
 
@@ -674,24 +860,45 @@
         waBtn.href = 'https://wa.me/94701137377?text=' + waMsg;
       }
 
+      var pairingCurrentName = document.getElementById('pairingCurrentSpiceName');
+      if (pairingCurrentName) {
+        pairingCurrentName.textContent = spice.name;
+      }
+
       var relatedGrid = document.getElementById('relatedSpicesGrid');
       relatedGrid.innerHTML = '';
-      var flagshipOrder = ['chillie-powder', 'chillie-flakes', 'black-pepper', 'curry-powder', 'roasted-curry-powder', 'turmeric-powder'];
-      var relatedKeys = flagshipOrder.filter(function (k) { return k !== spice.id; });
-      relatedKeys.forEach(function (key) {
-        var item = SPICES_DATA[key];
+
+      var pairingsList = spice.pairings;
+      if (!pairingsList || !pairingsList.length) {
+        var flagshipOrder = ['chillie-powder', 'chillie-flakes', 'black-pepper', 'curry-powder', 'roasted-curry-powder', 'turmeric-powder'];
+        var fallbackKeys = flagshipOrder.filter(function (k) { return k !== spice.id; }).slice(0, 4);
+        pairingsList = fallbackKeys.map(function (k) {
+          return { id: k, badge: 'Culinary Synergy', note: 'Single-origin Ceylon spice tailored to elevate complexity, warmth, and flavor balance.' };
+        });
+      }
+
+      pairingsList.forEach(function (pair) {
+        var item = SPICES_DATA[pair.id];
         if (!item) return;
+
         var card = document.createElement('div');
-        card.className = 'spice-card reveal';
+        card.className = 'pairing-card';
         card.innerHTML =
-          '<a href="product-detail.html?id=' + item.id + '">' +
-          '<div class="frame packaging-frame">' +
-          '<span class="pack-badge">' + (item.netWeight || '1 kg') + ' Pack</span>' +
-          '<img loading="lazy" src="' + item.image + '" alt="' + item.name + '">' +
+          '<div>' +
+            '<div class="pairing-frame">' +
+              '<span class="pack-badge">' + (item.netWeight || '1 kg') + ' Pack</span>' +
+              '<img loading="lazy" src="' + item.image + '" alt="' + item.name + '">' +
+            '</div>' +
+            '<span class="pairing-badge">✦ ' + (pair.badge || 'Complementary Pair') + '</span>' +
+            '<h3 class="pairing-title">' + item.name + '</h3>' +
+            '<p class="pairing-meta">' + (item.category || 'SIGNATURE SPICE') + ' &bull; ' + (item.origin || 'Sri Lanka') + '</p>' +
+            '<p class="pairing-note">' + (pair.note || item.tagline) + '</p>' +
           '</div>' +
-          '<h3>' + item.name + '</h3>' +
-          '<p class="origin">' + item.origin + '</p>' +
+          '<a href="product-detail.html?id=' + item.id + '" class="pairing-cta">' +
+            '<span>Explore Spice Details</span>' +
+            '<span>&rarr;</span>' +
           '</a>';
+
         relatedGrid.appendChild(card);
       });
     });

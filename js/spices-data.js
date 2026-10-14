@@ -20,7 +20,7 @@ var SPICES_DATA = {
     gallery: [
       "assets/images/products/chillie-powder.jpg",
       "assets/images/products/chillie-powder-lifestyle.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum_-_red_chili_chilli_-_piment_rouge_-_roter_Chili_01.jpg?width=800"
+      "assets/images/products/chillie-powder-raw.jpg"
     ],
     tagline: "Fiery, sun-dried Ceylon red chilli powder with vibrant crimson warmth and explosive aromatic heat.",
     overview: "Crafted from hand-selected, vine-ripened red chillies cultivated in the mineral-rich soils of Sri Lanka. Traditional sun-curing on raised rush mats preserves their volatile natural capsaicin and distinctive fruity undertones. Stone-milled to perfection and packaged in our signature 1 kg protective aroma-lock pack adorned with authentic Sri Lankan traditional Raksha artwork.",
@@ -37,7 +37,33 @@ var SPICES_DATA = {
       "Origin": "Sri Lanka Authentic",
       "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      {
+        id: "roasted-curry-powder",
+        badge: "Deep Roast & Heat Harmony",
+        role: "Flavor Depth Anchor",
+        note: "Dark skillet-roasted coriander, cumin, and curry leaves provide a rich, smoky foundation that anchors and balances fiery red chilli heat in Sri Lankan meat curries."
+      },
+      {
+        id: "black-pepper",
+        badge: "Dual-Spectrum Fire",
+        role: "Multi-Layered Heat",
+        note: "Combines front-palate capsaicin heat with deep, lingering highland piperine bite to create the signature layered warmth of Sri Lankan cuisine."
+      },
+      {
+        id: "turmeric-powder",
+        badge: "Golden Earthy Anchor",
+        role: "Color & Acidity Balance",
+        note: "Mellows sharp chilli acidity, locks in vibrant red-amber curry colour, and imparts essential warm earthy notes to devilled and curried gravies."
+      },
+      {
+        id: "curry-powder",
+        badge: "Aromatic Softening",
+        role: "Delicate Floral Sweetness",
+        note: "Cold-milled raw coriander and sweet fennel soften fiery chilli pungency, adding gentle floral sweetness to everyday coconut milk curries."
+      }
+    ]
   },
 
   "chillie-flakes": {
@@ -53,7 +79,7 @@ var SPICES_DATA = {
     gallery: [
       "assets/images/products/chillie-flakes.jpg",
       "assets/images/products/chillie-flakes-lifestyle.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum_-_red_chili_chilli_-_piment_rouge_-_roter_Chili_01.jpg?width=800"
+      "assets/images/products/chillie-flakes-raw.jpg"
     ],
     tagline: "Coarsely crushed sun-dried red chillies and golden seeds delivering crisp texture and instant fiery punch.",
     overview: "Our crushed chilli flakes are coarsely milled from whole sun-dried red chillies with golden seeds intact. Delivering crisp texture, mouthwatering seed warmth, and immediate sizzling punch, Oleetzo Chillie Flakes are an indispensable staple in Sri Lankan street food, devilled favourites, and modern gourmet kitchens.",
@@ -70,7 +96,33 @@ var SPICES_DATA = {
       "Origin": "Sri Lanka Authentic",
       "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      {
+        id: "black-pepper",
+        badge: "Crisp Textural Punch",
+        role: "Pungent Wok Crunch",
+        note: "Coarse crunchy flakes and toasted golden seeds team up with cracked highland pepper for the quintessential spicy kick in Kottu Roti, devilled dishes, and dry rubs."
+      },
+      {
+        id: "roasted-curry-powder",
+        badge: "Smoky Wok Sizzle",
+        role: "Deep Umami Depth",
+        note: "Toasted seed warmth melds effortlessly with dark-roasted skillet aromatics, creating intense umami depth in devilled seafood and short-eat fillings."
+      },
+      {
+        id: "turmeric-powder",
+        badge: "Warm Golden Glow",
+        role: "Vibrant Visual Contrast",
+        note: "Provides a sun-drenched amber glow and grounding earthiness that contrasts brilliantly with the sharp scarlet flecks of crushed chilli flakes."
+      },
+      {
+        id: "curry-powder",
+        badge: "Herbal Tempering",
+        role: "Aromatic Balance",
+        note: "Delicate raw spices and floral fennel temper the sudden burst of hot chilli seeds in savoury pastries, rice bowls, and vegetable noodles."
+      }
+    ]
   },
 
   "black-pepper": {
@@ -86,7 +138,7 @@ var SPICES_DATA = {
     gallery: [
       "assets/images/products/black-pepper.jpg",
       "assets/images/products/black-pepper-lifestyle.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_IMG_4866_-_02.jpg?width=800"
+      "assets/images/products/black-pepper-raw.jpg"
     ],
     tagline: "Highland Ceylon black pepper renowned globally for unmatched piperine potency and deep citrus-pine bite.",
     overview: "Sri Lankan highland black pepper is prized globally as the gold standard of pepper due to its extraordinarily dense piperine content (6.8%+). Hand-harvested berry by berry from the misty central hills, then sun-cured until deeply wrinkled and dark obsidian black. Oleetzo Black Pepper delivers an unmistakable, multi-layered warmth with bright floral and pine undertones.",
@@ -102,7 +154,33 @@ var SPICES_DATA = {
       "Origin": "Matale & Kandy Highlands, Sri Lanka",
       "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
       "Shelf Life": "36 Months"
-    }
+    },
+    pairings: [
+      {
+        id: "turmeric-powder",
+        badge: "Legendary 2,000% Bio-Synergy",
+        role: "Maximized Bioavailability",
+        note: "Highland piperine enhances curcumin absorption by up to 2,000%, creating the most celebrated synergy in both ayurvedic wellness and rich golden curries."
+      },
+      {
+        id: "roasted-curry-powder",
+        badge: "Dark Curry Soul",
+        role: "Black Pork Curry Heart",
+        note: "The irreplaceable heart of authentic Sri Lankan Black Pork Curry and pepper beef. Slow skillet-roasted spices amplify cracked pepper's pungent pine notes."
+      },
+      {
+        id: "chillie-powder",
+        badge: "Layered Heat Profile",
+        role: "Full-Spectrum Fire",
+        note: "High-altitude pepper provides lingering throat warmth while chilli powder delivers immediate tongue sizzle for perfectly balanced heat in grilled steaks and devilled crab."
+      },
+      {
+        id: "curry-powder",
+        badge: "Citrus-Pine Lift",
+        role: "Herbal Cut & Freshness",
+        note: "Adds crisp, peppery brightness that cuts through rich coconut milk bases in Ceylon potato curries, dhal, and delicate seafood broths."
+      }
+    ]
   },
 
   "curry-powder": {
@@ -118,7 +196,7 @@ var SPICES_DATA = {
     gallery: [
       "assets/images/products/curry-powder.jpg",
       "assets/images/products/curry-powder-lifestyle.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Bengali_spices.JPG?width=800"
+      "assets/images/products/curry-powder-raw.jpg"
     ],
     tagline: "The golden hallmark of Ceylon cuisine — a fragrant unroasted blend of coriander, cumin, sweet fennel, cinnamon and turmeric.",
     overview: "Known traditionally as 'Amu Thuna Paha' (Raw Curry Powder), this golden blend forms the soul of delicate Sri Lankan cooking. Unroasted coriander seeds, cumin, sweet fennel, pure Ceylon cinnamon quills, cardamom pods, turmeric, and dried curry leaves are cold-stone ground gently without heat so their volatile floral aromatics remain alive and intact.",
@@ -134,7 +212,33 @@ var SPICES_DATA = {
       "Origin": "Sri Lanka Authentic",
       "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      {
+        id: "turmeric-powder",
+        badge: "Classic Golden Foundation",
+        role: "Kiri Hodi & Dhal Base",
+        note: "The sacred duo of Sri Lankan white curries (Kiri Hodi) and dhal. Sun-cured turmeric grounds the delicate floral raw aromatics of sweet fennel."
+      },
+      {
+        id: "chillie-powder",
+        badge: "Controlled Crimson Warmth",
+        role: "Color & Gentle Fire",
+        note: "Injects vibrant crimson color and controlled warmth into gentle coconut milk curry gravies without overpowering delicate unroasted notes."
+      },
+      {
+        id: "black-pepper",
+        badge: "Highland Pepper Zing",
+        role: "Pine-Citrus Spark",
+        note: "Lifts vegetable and egg curries with fresh pine-citrus aroma, providing authentic warmth without relying purely on red chilli capsaicin."
+      },
+      {
+        id: "chillie-flakes",
+        badge: "Crunch & Visual Pop",
+        role: "Textural Contrast",
+        note: "Sprinkled as a finishing flourish over yellow curried dishes to deliver pleasant toasted seed texture and appetizing scarlet flecks."
+      }
+    ]
   },
 
   "roasted-curry-powder": {
@@ -150,7 +254,7 @@ var SPICES_DATA = {
     gallery: [
       "assets/images/products/roasted-curry-powder.jpg",
       "assets/images/products/roasted-curry-powder-lifestyle.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Spicesindia.jpg?width=800"
+      "assets/images/products/roasted-curry-powder-raw.jpg"
     ],
     tagline: "Deep mahogany roasted spice blend slow pan-roasted to perfection — the rich, smoky soul of Ceylon dark curries.",
     overview: "The revered 'Badapu Thuna Paha' is Sri Lanka's culinary masterpiece. Hand-selected coriander, cumin, black pepper, mustard seeds, cardamom, cinnamon, and fresh curry leaves with toasted raw rice are slow-roasted individually in heavy iron skillets until dark mahogany-brown. It yields an irresistible, smoky, and complex aromatic depth that defines authentic Sri Lankan red and dark curries.",
@@ -166,7 +270,33 @@ var SPICES_DATA = {
       "Origin": "Sri Lanka Authentic",
       "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      {
+        id: "black-pepper",
+        badge: "Pungent Roasted Depth",
+        role: "Dark Gravy Anchor",
+        note: "Highland piperine integrates seamlessly with skillet-toasted cumin, coriander, and curry leaves to create the deep, rich gravy of Ceylon dark curries."
+      },
+      {
+        id: "chillie-powder",
+        badge: "Fiery Mahogany Flame",
+        role: "Ruby Glow & Heat",
+        note: "Fiery crimson chilli adds intense bite and appetizing ruby sheen that cuts through the smoky richness of iron-skillet roasted whole spices."
+      },
+      {
+        id: "turmeric-powder",
+        badge: "Earthy Mineral Balance",
+        role: "Smooth Roundness",
+        note: "A subtle pinch of golden turmeric balances intense skillet-roasted astringency, lending roundness and warmth to meat and poultry curries."
+      },
+      {
+        id: "chillie-flakes",
+        badge: "Rustic Skillet Crunch",
+        role: "Caramelized Crunch",
+        note: "Combines with dark roasted curry powder in dry-fried devilled meats and caramelized onion Seeni Sambol for irresistible toasted crunch."
+      }
+    ]
   },
 
   "turmeric-powder": {
@@ -182,7 +312,7 @@ var SPICES_DATA = {
     gallery: [
       "assets/images/products/turmeric-powder.jpg",
       "assets/images/products/turmeric-powder-lifestyle.jpg",
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Curcuma_longa_roots.jpg?width=800"
+      "assets/images/products/turmeric-powder-raw.jpg"
     ],
     tagline: "Vibrant golden-amber Ceylon turmeric with exceptionally high natural curcumin, slow stone-milled for rich earthy aroma.",
     overview: "Sourced from the mineral-rich soils of Sri Lanka's Kegalle and Central valleys, our heirloom turmeric roots mature underground before being hand-dug at peak potency. Washed in fresh spring water, sun-cured on raised bamboo rush mats, and slowly stone-milled to protect its volatile essential oils and high curcumin content. Sealed in our signature 1 kg protective aroma-lock pack adorned with authentic Sri Lankan traditional Raksha artwork.",
@@ -198,7 +328,33 @@ var SPICES_DATA = {
       "Origin": "Sri Lanka Authentic",
       "Packaging": "Aroma-Lock Multi-Layer 1kg Pack with Raksha Art",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      {
+        id: "black-pepper",
+        badge: "2,000% Curcumin Bio-Synergy",
+        role: "Potency & Absorption Boost",
+        note: "Highland piperine increases curcumin bioavailability by 2,000%. Essential for wellness golden milk lattes, immune elixirs, and daily health-boosting curries."
+      },
+      {
+        id: "curry-powder",
+        badge: "Aromatic Sunshine Blend",
+        role: "Fragrant Yellow Curry Base",
+        note: "Forms the vibrant golden soul of Sri Lankan yellow rice, lentil dhal, and vegetable stews, blending earthy root warmth with delicate sweet fennel."
+      },
+      {
+        id: "chillie-powder",
+        badge: "Vibrant Crimson & Gold",
+        role: "Authentic Curry Color",
+        note: "The quintessential South Asian culinary pair: earthy golden turmeric stabilizes chilli heat and yields the signature glowing red-amber tone of Sri Lankan curries."
+      },
+      {
+        id: "roasted-curry-powder",
+        badge: "Deep Earth & Roast Harmony",
+        role: "Smoky Gravy Rounding",
+        note: "Brightens and harmonizes heavy iron-pan roasted spice blends in traditional village-style chicken curries and tender dark mutton stews."
+      }
+    ]
   },
 
   /* ===================================================
@@ -215,7 +371,8 @@ var SPICES_DATA = {
     image: "assets/images/products/chillie-powder.jpg",
     gallery: [
       "assets/images/products/chillie-powder.jpg",
-      "assets/images/products/chillie-powder-lifestyle.jpg"
+      "assets/images/products/chillie-powder-lifestyle.jpg",
+      "assets/images/products/chillie-powder-raw.jpg"
     ],
     tagline: "Fiery, sun-dried Ceylon red chilli powder with vibrant crimson warmth and explosive aromatic heat.",
     overview: "Crafted from hand-selected, vine-ripened red chillies cultivated in Sri Lanka. Packaged in our signature 1 kg protective pack.",
@@ -237,7 +394,8 @@ var SPICES_DATA = {
     image: "assets/images/products/black-pepper.jpg",
     gallery: [
       "assets/images/products/black-pepper.jpg",
-      "assets/images/products/black-pepper-lifestyle.jpg"
+      "assets/images/products/black-pepper-lifestyle.jpg",
+      "assets/images/products/black-pepper-raw.jpg"
     ],
     tagline: "Highland Ceylon black pepper renowned globally for unmatched piperine potency.",
     overview: "Sri Lankan highland black pepper is prized globally as the gold standard of pepper.",
@@ -259,7 +417,8 @@ var SPICES_DATA = {
     image: "assets/images/products/turmeric-powder.jpg",
     gallery: [
       "assets/images/products/turmeric-powder.jpg",
-      "assets/images/products/turmeric-powder-lifestyle.jpg"
+      "assets/images/products/turmeric-powder-lifestyle.jpg",
+      "assets/images/products/turmeric-powder-raw.jpg"
     ],
     tagline: "Vibrant golden-amber Ceylon turmeric with high natural curcumin, stone-milled in small batches.",
     overview: "Sourced from the fertile, iron-rich soil of Kegalle Valley. Packaged in our signature 1 kg protective pack.",
@@ -296,7 +455,13 @@ var SPICES_DATA = {
       "Origin": "Matale Highlands",
       "Packaging": "Airtight Glass Jar with Cork Seal",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      { id: "black-pepper", badge: "Sweet & Savoury Contrast", note: "True Ceylon cinnamon quills lend delicate citrus-sweetness that balances high-potency black pepper in spiced teas, braises, and rice pilafs." },
+      { id: "curry-powder", badge: "Aromatic Backbone", note: "Cinnamon's subtle essential oils round out cold-stone ground coriander and fennel in traditional raw curry blends." },
+      { id: "roasted-curry-powder", badge: "Dark Skillet Sweetness", note: "Toasted Ceylon cinnamon bark releases warm cinnamaldehyde notes that soften dark iron-roasted curry blends." },
+      { id: "turmeric-powder", badge: "Warm Golden Infusion", note: "Synergizes in anti-inflammatory herbal brews, golden milk, and fragrant yellow spiced rice." }
+    ]
   },
 
   "cardamom": {
@@ -323,7 +488,13 @@ var SPICES_DATA = {
       "Pod Size": "7mm – 8mm Large Green",
       "Origin": "Central Hills, LK",
       "Shelf Life": "24 Months"
-    }
+    },
+    pairings: [
+      { id: "curry-powder", badge: "Floral Crown", note: "Fragrant crushed green cardamom pods provide refreshing herbal top notes to delicate white curries." },
+      { id: "roasted-curry-powder", badge: "Skillet Fragrance", note: "Cardamom pods burst with aromatic eucalyptus-citrus zest when skillet-toasted with dark spices." },
+      { id: "black-pepper", badge: "Highland Duo", note: "Together with black pepper, cardamom forms the aromatic core of royal Ceylon meat marinades." },
+      { id: "turmeric-powder", badge: "Golden Elixir", note: "A soothing combination for golden milk, spiced chai, and festive yellow rice." }
+    ]
   },
 
   "cloves": {
@@ -350,7 +521,13 @@ var SPICES_DATA = {
       "Eugenol Content": "> 18%",
       "Origin": "Southern Province",
       "Shelf Life": "36 Months"
-    }
+    },
+    pairings: [
+      { id: "roasted-curry-powder", badge: "Deep Eugenol Warmth", note: "Pungent whole cloves release comforting woody warmth that enriches slow-simmered dark meat gravies." },
+      { id: "black-pepper", badge: "Sharp Aromatic Bite", note: "Creates an assertive, palate-warming spice rub for roasted poultry and game meats." },
+      { id: "curry-powder", badge: "Fragrant Accent", note: "Just one or two cloves elevate unroasted vegetable and legume stews with fragrant depth." },
+      { id: "chillie-powder", badge: "Warmth & Fire", note: "Cloves temper the initial sting of chilli with deep, numbing sweetness." }
+    ]
   },
 
   "nutmeg": {
@@ -372,7 +549,13 @@ var SPICES_DATA = {
     aromaLevel: "Warm & Musky (4/5)",
     bestFor: "Bechamel sauces, eggnog, potato gratins, spiced pies & warm fruits",
     process: "Fruit gathering, seed sun-curing over 6 weeks, shell cracking.",
-    specs: { "Botanical Name": "Myristica fragrans", "Origin": "Central Province", "Shelf Life": "36 Months" }
+    specs: { "Botanical Name": "Myristica fragrans", "Origin": "Central Province", "Shelf Life": "36 Months" },
+    pairings: [
+      { id: "roasted-curry-powder", badge: "Rich Nutty Undertone", note: "Freshly grated nutmeg introduces sweet, nutty warmth that melds perfectly into rich coconut gravies." },
+      { id: "curry-powder", badge: "Velvety Finish", note: "Subtly rounds out everyday vegetarian curries and comforting potato stews." },
+      { id: "black-pepper", badge: "Pepper & Spice Harmony", note: "A classic pairing for spiced festive roasts, cheese sauces, and biryanis." },
+      { id: "turmeric-powder", badge: "Golden Nightcap", note: "A comforting pinch in warm turmeric golden milk promotes tranquil evening relaxation." }
+    ]
   },
 
   "star-anise": {
@@ -392,6 +575,12 @@ var SPICES_DATA = {
     aromaLevel: "Pungent Sweet (4.5/5)",
     bestFor: "Broths, braised meats, mulled drinks, chai & roasted plum tarts",
     process: "Sun drying until rust red, hand sorting.",
-    specs: { "Botanical Name": "Illicium verum", "Shelf Life": "24 Months" }
+    specs: { "Botanical Name": "Illicium verum", "Shelf Life": "24 Months" },
+    pairings: [
+      { id: "roasted-curry-powder", badge: "Sweet Licorice Resonance", note: "Whole star anise imparts sweet licorice complexity that cuts through rich, savory meat dishes." },
+      { id: "black-pepper", badge: "Exotic Broth Base", note: "Essential for aromatic Ceylon bone broths, devilled beef, and slow-braised curries." },
+      { id: "chillie-powder", badge: "Sweet Heat Dynamic", note: "Creates an addictive sweet-spicy glaze for chicken wings, seafood, and devilled dishes." },
+      { id: "curry-powder", badge: "Aromatic Lift", note: "Lends delicate star anise fragrance to fragrant spiced rice and biryani bases." }
+    ]
   }
 };
