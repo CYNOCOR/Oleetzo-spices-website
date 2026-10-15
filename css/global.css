@@ -662,7 +662,7 @@ body[data-page="product-detail"] .nav {
   gap: clamp(1.2rem, 2.2vw, 2.2rem);
 }
 
-.nav-links a {
+.nav-links a:not(.nav-cta) {
   color: var(--ivory);
   font-size: 0.88rem;
   letter-spacing: 0.04em;
@@ -675,17 +675,40 @@ body[data-page="product-detail"] .nav {
   align-items: center;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:not(.nav-cta):hover,
+.nav-links a:not(.nav-cta).active {
   color: var(--gold-300);
   background: rgba(247, 230, 191, 0.12);
 }
 
-.nav-cta {
-  margin-left: 0.4rem;
-  padding: 0.55rem 1.4rem;
+.nav-cta,
+.nav-links a.nav-cta {
+  margin-left: 0.5rem;
+  padding: 0.52rem 1.45rem !important;
   min-height: 38px;
-  font-size: 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--wine-950) !important;
+  background: linear-gradient(135deg, #f7e6bf 0%, #eec97a 40%, #d9a441 100%) !important;
+  border: 1px solid rgba(238, 201, 122, 0.75) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: 0 4px 14px rgba(217, 164, 65, 0.32);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-cta:hover,
+.nav-links a.nav-cta:hover {
+  color: var(--wine-950) !important;
+  background: linear-gradient(135deg, #fff0cf 0%, #f4d693 40%, #dfa83d 100%) !important;
+  border-color: var(--gold-300) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(217, 164, 65, 0.5);
 }
 
 /* Floating WhatsApp Button (Icon-only, Original WhatsApp Green, Bobbing Animation) */
@@ -1138,6 +1161,17 @@ body[data-page="product-detail"] .nav {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(30, 3, 7, 0.55), rgba(30, 3, 7, 0.92));
+}
+
+body[data-page="about"] .page-banner {
+  background-position: center right;
+  min-height: clamp(48vh, 58vh, 68vh);
+}
+
+body[data-page="about"] .page-banner::after {
+  background:
+    linear-gradient(90deg, rgba(20, 2, 4, 0.88) 0%, rgba(20, 2, 4, 0.62) 48%, rgba(20, 2, 4, 0.22) 80%, rgba(20, 2, 4, 0.5) 100%),
+    linear-gradient(180deg, rgba(20, 2, 4, 0.35) 0%, rgba(20, 2, 4, 0.78) 100%);
 }
 
 .page-banner-content {
