@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Spice Detail — Oleetzo Ceylon Spices</title>
+  <title>Spice Detail - Oleetzo Ceylon Spices</title>
   <meta name="description" content="Single-origin Ceylon spice detail, provenance, and craft harvest notes.">
   <meta name="theme-color" content="#1e0307">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,9 +21,35 @@
   <link rel="stylesheet" href="css/global.css">
 
   <style>
-    html, body {
+    html,
+    body {
       overflow-x: clip !important;
       overflow-y: visible !important;
+    }
+
+    /* Fixed luxury pill navbar always visible on product detail page */
+    #site-header {
+      position: fixed !important;
+      inset: 0 0 auto 0 !important;
+      z-index: 900 !important;
+      pointer-events: none;
+    }
+
+    #site-header>* {
+      pointer-events: auto;
+    }
+
+    .nav {
+      margin: 0.6rem auto !important;
+      max-width: var(--max) !important;
+      width: calc(100% - clamp(1rem, 3.5vw, 3rem)) !important;
+      background: rgba(30, 3, 7, 0.94) !important;
+      backdrop-filter: blur(18px) !important;
+      -webkit-backdrop-filter: blur(18px) !important;
+      padding: 0.65rem clamp(1rem, 2.5vw, 1.8rem) !important;
+      border-radius: var(--radius-pill) !important;
+      border: 1px solid rgba(247, 230, 191, 0.22) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
     }
 
     .detail-layout {
@@ -38,6 +64,7 @@
       .detail-layout {
         grid-template-columns: 1fr;
       }
+
       .gallery-sticky {
         position: static !important;
       }
@@ -56,6 +83,7 @@
       .gallery-sticky {
         top: 5.4rem;
       }
+
       .main-photo-frame {
         max-width: 310px;
         max-height: 440px;
@@ -174,6 +202,7 @@
         width: 40px;
         height: 40px;
       }
+
       .gallery-photo-counter {
         opacity: 0.9;
       }
@@ -404,15 +433,9 @@
        =================================================== */
     .pairing-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: clamp(1.4rem, 2.5vw, 2.2rem);
       margin-top: 1.5rem;
-    }
-
-    @media (max-width: 1100px) {
-      .pairing-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
     @media (max-width: 600px) {
@@ -426,7 +449,7 @@
       background: linear-gradient(160deg, rgba(38, 5, 10, 0.72), rgba(16, 2, 4, 0.92));
       border: 1.2px solid rgba(238, 201, 122, 0.22);
       border-radius: var(--radius-xl);
-      padding: 1.4rem 1.3rem;
+      padding: 1.4rem 1.3rem 1.6rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -436,6 +459,7 @@
       box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.55);
       opacity: 1 !important;
       visibility: visible !important;
+      box-sizing: border-box;
     }
 
     .pairing-card::before {
@@ -537,26 +561,32 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
-      font-size: 0.84rem;
+      gap: 0.55rem;
+      font-size: clamp(0.82rem, 1vw, 0.88rem);
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       color: var(--gold-300);
-      background: rgba(28, 3, 6, 0.75);
+      background: rgba(28, 3, 6, 0.85);
       border: 1.5px solid rgba(238, 201, 122, 0.45);
-      padding: 0.65rem 1.2rem;
+      padding: 0.75rem 1.4rem;
+      min-height: 46px;
       border-radius: var(--radius-pill);
       text-decoration: none;
-      transition: all 0.35s ease;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       width: 100%;
       text-align: center;
+      box-sizing: border-box;
+      margin-top: 1.2rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
 
     .pairing-card:hover .pairing-cta {
       background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
       color: var(--wine-950);
       border-color: var(--gold-300);
-      box-shadow: 0 6px 18px rgba(238, 201, 122, 0.35);
+      box-shadow: 0 8px 22px rgba(238, 201, 122, 0.4);
       transform: translateY(-2px);
     }
   </style>
@@ -597,13 +627,16 @@
           <div class="main-photo-frame packaging-detail-frame" id="mainPhotoFrame">
             <span class="pack-badge" id="detailPackBadge">1 kg Pack</span>
             <img id="detailMainImg" src="" alt="Spice photo" class="ext-img">
-            <button class="gallery-nav-btn prev-btn" id="galleryPrevBtn" aria-label="Previous photo" title="Previous photo">
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <button class="gallery-nav-btn prev-btn" id="galleryPrevBtn" aria-label="Previous photo"
+              title="Previous photo">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.4" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </button>
             <button class="gallery-nav-btn next-btn" id="galleryNextBtn" aria-label="Next photo" title="Next photo">
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.4" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
@@ -632,7 +665,8 @@
 
           <div class="detail-box reveal">
             <h4>Tasting Profile &amp; Aroma</h4>
-            <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:0.6rem;">Key flavor notes detected on first aroma &amp; palate:</p>
+            <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:0.6rem;">Key flavor notes detected on first
+              aroma &amp; palate:</p>
             <div class="tasting-chips" id="detailTastingNotes"></div>
 
             <div style="margin-top:1.2rem;display:flex;align-items:center;gap:1rem;">
@@ -657,9 +691,14 @@
           </div>
 
           <div class="action-bar reveal">
-            <a class="btn btn-gold" id="enquireSpiceBtn" href="contact.html">Enquire / Order 1kg Pack &rarr;</a>
-            <a class="btn btn-line-dark" id="whatsappSpiceBtn" href="https://wa.me/94701137377" target="_blank" rel="noopener noreferrer" style="border-color:rgba(37,211,102,0.4);color:#128c7e;display:inline-flex;align-items:center;gap:0.4rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true"><path d="M12.04 3a8.9 8.9 0 0 0-7.6 13.6L3 21l4.5-1.4A8.9 8.9 0 1 0 12.04 3Zm0 1.9a7 7 0 0 1 6 10.6l-.24.4.7 2.5-2.55-.66-.4.24a7 7 0 1 1-3.5-13.08Zm-2.9 3.6c-.2 0-.5 0-.7.3s-.85.8-.85 1.9.85 2.2 1 2.4a7.9 7.9 0 0 0 3.2 2.9c1.5.6 1.8.5 2.15.5.5-.05 1.4-.55 1.6-1.1.2-.55.2-1 .15-1.1s-.2-.15-.4-.25-1.4-.7-1.6-.75-.35-.1-.5.1-.6.75-.7.9-.25.15-.45.05a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.15-.25 0-.35.1-.45s.2-.25.3-.4.15-.25.2-.4.05-.3 0-.4-.6-1.45-.85-2Z"/></svg>
+            <a class="btn btn-gold" id="enquireSpiceBtn" href="contact.html">Enquire / Order 1kg Pack</a>
+            <a class="btn btn-line-dark" id="whatsappSpiceBtn" href="https://wa.me/94701137377" target="_blank"
+              rel="noopener noreferrer"
+              style="border-color:rgba(37,211,102,0.4);color:#128c7e;display:inline-flex;align-items:center;gap:0.4rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366" aria-hidden="true">
+                <path
+                  d="M12.04 3a8.9 8.9 0 0 0-7.6 13.6L3 21l4.5-1.4A8.9 8.9 0 1 0 12.04 3Zm0 1.9a7 7 0 0 1 6 10.6l-.24.4.7 2.5-2.55-.66-.4.24a7 7 0 1 1-3.5-13.08Zm-2.9 3.6c-.2 0-.5 0-.7.3s-.85.8-.85 1.9.85 2.2 1 2.4a7.9 7.9 0 0 0 3.2 2.9c1.5.6 1.8.5 2.15.5.5-.05 1.4-.55 1.6-1.1.2-.55.2-1 .15-1.1s-.2-.15-.4-.25-1.4-.7-1.6-.75-.35-.1-.5.1-.6.75-.7.9-.25.15-.45.05a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.6c-.15-.25 0-.35.1-.45s.2-.25.3-.4.15-.25.2-.4.05-.3 0-.4-.6-1.45-.85-2Z" />
+              </svg>
               <span>Order on WhatsApp</span>
             </a>
             <a class="btn btn-line-dark" href="products.html">Browse All Pantry Items</a>
@@ -671,14 +710,18 @@
   </section>
 
   <!-- ================= PAIRING & COMPLEMENTARY SPICES ================= -->
-  <section class="section-dark" style="position:relative;overflow:hidden;border-top:1px solid rgba(238,201,122,0.2);padding: clamp(3.5rem, 6vw, 5.5rem) 0;">
+  <section class="section-dark"
+    style="position:relative;overflow:hidden;border-top:1px solid rgba(238,201,122,0.2);padding: clamp(3.5rem, 6vw, 5.5rem) 0;">
     <div class="wrap">
       <div class="section-head" style="margin-bottom: 2rem;">
         <div>
           <p class="eyebrow" style="color:var(--gold-400);letter-spacing:0.18em;margin-bottom:0.4rem;">EXPLORE MORE</p>
           <h2 style="color:var(--ivory);font-size:clamp(2rem, 3.5vw, 2.8rem);">Pairing &amp; Complementary Spices</h2>
-          <p class="section-desc" id="pairingSectionDesc" style="color:rgba(247,243,235,0.78);max-width:740px;margin-top:0.6rem;font-size:1.02rem;line-height:1.65;">
-            Discover curated single-origin Ceylon spices that harmonize naturally with Oleetzo <span id="pairingCurrentSpiceName" style="color:var(--gold-300);font-weight:600;"></span> to elevate aromatic depth, balance heat, and achieve authentic Sri Lankan flavor harmony.
+          <p class="section-desc" id="pairingSectionDesc"
+            style="color:rgba(247,243,235,0.78);max-width:740px;margin-top:0.6rem;font-size:1.02rem;line-height:1.65;">
+            Discover curated single-origin Ceylon spices that harmonize naturally with Oleetzo <span
+              id="pairingCurrentSpiceName" style="color:var(--gold-300);font-weight:600;"></span> to elevate aromatic
+            depth, balance heat, and achieve authentic Sri Lankan flavor harmony.
           </p>
         </div>
       </div>
@@ -703,7 +746,7 @@
         spice = SPICES_DATA[spice.aliasOf];
       }
 
-      document.title = spice.name + ' — Oleetzo Ceylon Spices';
+      document.title = spice.name + ' - Oleetzo Ceylon Spices';
 
       document.getElementById('detailCategory').textContent = spice.category;
       document.getElementById('detailOrigin').textContent = spice.origin;
@@ -752,7 +795,7 @@
             btn.classList.add('active');
             try {
               btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-            } catch (err) {}
+            } catch (err) { }
           } else {
             btn.classList.remove('active');
           }
@@ -852,7 +895,7 @@
 
       var enquireBtn = document.getElementById('enquireSpiceBtn');
       enquireBtn.href = 'contact.html?spice=' + encodeURIComponent(spice.name);
-      enquireBtn.innerHTML = 'Enquire / Order ' + (spice.netWeight || '1kg') + ' Pack &rarr;';
+      enquireBtn.innerHTML = 'Enquire / Order ' + (spice.netWeight || '1kg') + ' Pack';
 
       var waBtn = document.getElementById('whatsappSpiceBtn');
       if (waBtn) {
@@ -885,18 +928,17 @@
         card.className = 'pairing-card';
         card.innerHTML =
           '<div>' +
-            '<div class="pairing-frame">' +
-              '<span class="pack-badge">' + (item.netWeight || '1 kg') + ' Pack</span>' +
-              '<img loading="lazy" src="' + item.image + '" alt="' + item.name + '">' +
-            '</div>' +
-            '<span class="pairing-badge">✦ ' + (pair.badge || 'Complementary Pair') + '</span>' +
-            '<h3 class="pairing-title">' + item.name + '</h3>' +
-            '<p class="pairing-meta">' + (item.category || 'SIGNATURE SPICE') + ' &bull; ' + (item.origin || 'Sri Lanka') + '</p>' +
-            '<p class="pairing-note">' + (pair.note || item.tagline) + '</p>' +
+          '<div class="pairing-frame">' +
+          '<span class="pack-badge">' + (item.netWeight || '1 kg') + ' Pack</span>' +
+          '<img loading="lazy" src="' + item.image + '" alt="' + item.name + '">' +
+          '</div>' +
+          '<span class="pairing-badge">✦ ' + (pair.badge || 'Complementary Pair') + '</span>' +
+          '<h3 class="pairing-title">' + item.name + '</h3>' +
+          '<p class="pairing-meta">' + (item.category || 'SIGNATURE SPICE') + ' &bull; ' + (item.origin || 'Sri Lanka') + '</p>' +
+          '<p class="pairing-note">' + (pair.note || item.tagline) + '</p>' +
           '</div>' +
           '<a href="product-detail.html?id=' + item.id + '" class="pairing-cta">' +
-            '<span>Explore Spice Details</span>' +
-            '<span>&rarr;</span>' +
+          '<span>Explore Spice</span>' +
           '</a>';
 
         relatedGrid.appendChild(card);

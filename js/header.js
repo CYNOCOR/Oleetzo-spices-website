@@ -87,6 +87,10 @@
   var ticking = false;
   function onScroll() {
     if (!navEl) return;
+    if (current === 'product-detail') {
+      navEl.classList.add('is-scrolled', 'always-visible');
+      return;
+    }
     if (!ticking) {
       window.requestAnimationFrame(function () {
         if (window.scrollY > 20) {

@@ -616,17 +616,18 @@ p {
   padding-right: max(var(--gutter), env(safe-area-inset-right));
 }
 
-.nav.is-scrolled {
+.nav.is-scrolled,
+body[data-page="product-detail"] .nav {
   margin: 0.6rem auto;
   max-width: var(--max);
   width: calc(100% - clamp(1rem, 3.5vw, 3rem));
-  background: rgba(30, 3, 7, 0.9);
+  background: rgba(30, 3, 7, 0.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   padding: 0.65rem clamp(1rem, 2.5vw, 1.8rem);
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(247, 230, 191, 0.18);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(247, 230, 191, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 .nav-brand {
@@ -955,14 +956,72 @@ p {
   opacity: 0;
   background-size: cover;
   background-position: center;
-  animation: kenburns 24s ease-in-out infinite;
-  transition: opacity 1.6s ease;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .hero-slide.is-active {
   opacity: 1;
+  z-index: 2;
+  animation: kenburns 24s ease-in-out infinite;
+}
+
+.hero-slide.is-prev {
+  opacity: 0;
   z-index: 1;
 }
+
+.hero-indicators {
+  position: absolute;
+  bottom: clamp(1.8rem, 3.5vh, 2.6rem);
+  right: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(30, 3, 7, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(247, 230, 191, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(247, 230, 191, 0.38);
+  border: 1px solid rgba(247, 230, 191, 0.45);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.hero-dot:hover {
+  background: var(--gold-300);
+  border-color: var(--gold-300);
+  transform: scale(1.2);
+}
+
+.hero-dot.is-active {
+  width: 26px;
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  border-color: var(--gold-300);
+  box-shadow: 0 0 14px rgba(238, 201, 122, 0.65);
+}
+
+@media (max-width: 640px) {
+  .hero-indicators {
+    bottom: 4.8rem;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 
 @keyframes kenburns {
   0% { transform: scale(1.06) translate(0, 0); }

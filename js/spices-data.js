@@ -1,5 +1,5 @@
 /* =====================================================
-   OLEETZO — Ceylon Spices Master Data
+   OLEETZO - Ceylon Spices Master Data
    Authentic Sri Lankan Spice Lineup (1 kg Signature Range)
    & Single-Origin Pantry Archive.
    ===================================================== */
@@ -198,7 +198,7 @@ var SPICES_DATA = {
       "assets/images/products/curry-powder-lifestyle.jpg",
       "assets/images/products/curry-powder-raw.jpg"
     ],
-    tagline: "The golden hallmark of Ceylon cuisine — a fragrant unroasted blend of coriander, cumin, sweet fennel, cinnamon and turmeric.",
+    tagline: "The golden hallmark of Ceylon cuisine - a fragrant unroasted blend of coriander, cumin, sweet fennel, cinnamon and turmeric.",
     overview: "Known traditionally as 'Amu Thuna Paha' (Raw Curry Powder), this golden blend forms the soul of delicate Sri Lankan cooking. Unroasted coriander seeds, cumin, sweet fennel, pure Ceylon cinnamon quills, cardamom pods, turmeric, and dried curry leaves are cold-stone ground gently without heat so their volatile floral aromatics remain alive and intact.",
     tastingNotes: ["Warm Coriander", "Earthy Cumin", "Sweet Cinnamon Kiss", "Fresh Herbal Zest"],
     aromaLevel: "Delicate & Fragrant (4.5/5)",
@@ -256,7 +256,7 @@ var SPICES_DATA = {
       "assets/images/products/roasted-curry-powder-lifestyle.jpg",
       "assets/images/products/roasted-curry-powder-raw.jpg"
     ],
-    tagline: "Deep mahogany roasted spice blend slow pan-roasted to perfection — the rich, smoky soul of Ceylon dark curries.",
+    tagline: "Deep mahogany roasted spice blend slow pan-roasted to perfection - the rich, smoky soul of Ceylon dark curries.",
     overview: "The revered 'Badapu Thuna Paha' is Sri Lanka's culinary masterpiece. Hand-selected coriander, cumin, black pepper, mustard seeds, cardamom, cinnamon, and fresh curry leaves with toasted raw rice are slow-roasted individually in heavy iron skillets until dark mahogany-brown. It yields an irresistible, smoky, and complex aromatic depth that defines authentic Sri Lankan red and dark curries.",
     tastingNotes: ["Smoky Roasted Nut", "Toasted Cumin", "Earthy Highland Pepper", "Crisp Curry Leaf"],
     aromaLevel: "Deep, Rich & Smoky (5/5)",
@@ -543,7 +543,7 @@ var SPICES_DATA = {
     gallery: [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Myristica_Fragrans.jpg?width=800"
     ],
-    tagline: "Heavy, dark kernels rich in aromatic essential oils — essential for fresh microplane grating.",
+    tagline: "Heavy, dark kernels rich in aromatic essential oils - essential for fresh microplane grating.",
     overview: "Encased inside a yellow apricot-like fruit, nutmeg seeds are cured until the inner kernel rattles freely.",
     tastingNotes: ["Sweet Nutty", "Warm Pine", "Subtle Pepper"],
     aromaLevel: "Warm & Musky (4/5)",

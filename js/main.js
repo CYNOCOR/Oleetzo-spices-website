@@ -4,7 +4,7 @@
    Hero crossfade slideshow, product category filter,
    and contact form handling.
    ===================================================== */
-document.addEventListener('DOMContentLoaded', function () {
+function initOleetzo() {
 
   /* ---- 1. Logo Preloader Animation Controller (Exact 3.0s Presentation) ---- */
   var loader = document.getElementById('site-loader');
@@ -103,15 +103,99 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ---- 4. Hero slideshow ---- */
+  /* ---- 4. Hero slideshow (Smooth Luxury Crossfade & Interactive Dots) ---- */
   var slides = document.querySelectorAll('.hero-slide');
+  var heroContainer = document.querySelector('.hero');
+  var indicatorContainer = document.querySelector('.hero-indicators');
+
   if (slides.length) {
-    var i = 0;
-    setInterval(function () {
-      slides[i].classList.remove('is-active');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('is-active');
-    }, 6000);
+    var currentIdx = 0;
+    var slideTimer = null;
+    var ROTATION_TIME = 4500; // 4.5 seconds per slide
+
+    // Generate indicator dots if container exists and is empty
+    if (indicatorContainer && indicatorContainer.children.length === 0) {
+      slides.forEach(function (_, idx) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'hero-dot' + (idx === 0 ? ' is-active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        dot.setAttribute('aria-label', 'Show slide ' + (idx + 1));
+        dot.setAttribute('data-slide', idx);
+        indicatorContainer.appendChild(dot);
+      });
+    }
+
+    var dots = document.querySelectorAll('.hero-dot');
+
+    function updateDots(activeIdx) {
+      if (!dots.length) return;
+      dots.forEach(function (dot, idx) {
+        var isActive = idx === activeIdx;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
+    function goToSlide(nextIdx) {
+      if (nextIdx === currentIdx) return;
+      var prevIdx = currentIdx;
+      currentIdx = (nextIdx + slides.length) % slides.length;
+
+      slides.forEach(function (s) {
+        s.classList.remove('is-prev');
+      });
+
+      slides[prevIdx].classList.remove('is-active');
+      slides[prevIdx].classList.add('is-prev');
+
+      slides[currentIdx].classList.remove('is-prev');
+      slides[currentIdx].classList.add('is-active');
+
+      updateDots(currentIdx);
+
+      setTimeout(function () {
+        if (slides[prevIdx]) {
+          slides[prevIdx].classList.remove('is-prev');
+        }
+      }, 1600);
+    }
+
+    function nextSlide() {
+      goToSlide(currentIdx + 1);
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      slideTimer = setInterval(nextSlide, ROTATION_TIME);
+    }
+
+    function stopAutoSlide() {
+      if (slideTimer) {
+        clearInterval(slideTimer);
+        slideTimer = null;
+      }
+    }
+
+    // Attach click listeners to dots
+    if (dots.length) {
+      dots.forEach(function (dot, idx) {
+        dot.addEventListener('click', function () {
+          goToSlide(idx);
+          startAutoSlide(); // Reset timer on manual click
+        });
+      });
+    }
+
+    // Start rotation immediately
+    startAutoSlide();
+
+    // Pause on hover over hero content so user can read smoothly if desired
+    if (heroContainer) {
+      heroContainer.addEventListener('mouseenter', stopAutoSlide);
+      heroContainer.addEventListener('mouseleave', startAutoSlide);
+    }
   }
 
   /* ---- 5. Product filter (products.html) ---- */
@@ -271,9 +355,14 @@ document.addEventListener('DOMContentLoaded', function () {
         fallingOverlay.style.transform = 'translateX(' + currentWindX.toFixed(1) + 'px)';
         requestAnimationFrame(tickWind);
       }
-      requestAnimationFrame(tickWind);
     }
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initOleetzo);
+} else {
+  initOleetzo();
+}
 
 

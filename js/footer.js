@@ -68,7 +68,7 @@
     '<form id="footerNewsletter" class="footer-form" aria-label="Subscribe to newsletter">' +
     '<input type="email" placeholder="Your email address" required aria-label="Your email address" autocomplete="email">' +
     '<button type="submit" aria-label="Subscribe to newsletter">' +
-    '<span>Join</span> <span aria-hidden="true">&rarr;</span>' +
+    '<span>Join</span>' +
     '</button>' +
     '</form>' +
     '<p class="newsletter-note" id="newsletterNote" role="status" aria-live="polite">Thank you - you are on the list.</p>' +
