@@ -1165,13 +1165,186 @@ body[data-page="product-detail"] .nav {
 
 body[data-page="about"] .page-banner {
   background-position: center right;
-  min-height: clamp(48vh, 58vh, 68vh);
+  background-size: cover;
+  min-height: clamp(54vh, 64vh, 74vh);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+body[data-page="about"] .page-banner > .wrap {
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 body[data-page="about"] .page-banner::after {
   background:
-    linear-gradient(90deg, rgba(20, 2, 4, 0.88) 0%, rgba(20, 2, 4, 0.62) 48%, rgba(20, 2, 4, 0.22) 80%, rgba(20, 2, 4, 0.5) 100%),
-    linear-gradient(180deg, rgba(20, 2, 4, 0.35) 0%, rgba(20, 2, 4, 0.78) 100%);
+    linear-gradient(90deg,
+      rgba(16, 2, 4, 0.94) 0%,
+      rgba(16, 2, 4, 0.86) 32%,
+      rgba(16, 2, 4, 0.52) 58%,
+      rgba(16, 2, 4, 0.12) 78%,
+      rgba(16, 2, 4, 0.35) 100%),
+    linear-gradient(180deg,
+      rgba(16, 2, 4, 0.40) 0%,
+      rgba(16, 2, 4, 0.10) 45%,
+      rgba(16, 2, 4, 0.88) 100%);
+}
+
+.about-banner-content {
+  max-width: 520px;
+  text-align: left;
+  padding: clamp(6.2rem, 11vh, 9rem) 0 clamp(2.5rem, 5vh, 4rem);
+}
+
+.about-banner-content h1 {
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  line-height: 1.08;
+  margin-top: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.about-banner-content p {
+  font-size: clamp(1rem, 1.2vw + 0.3rem, 1.15rem);
+  color: rgba(251, 247, 240, 0.9);
+  max-width: 44ch;
+  line-height: 1.6;
+}
+
+/* Wholesale Fleet Section in About Page */
+.wholesale-fleet-section {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(238, 201, 122, 0.18);
+  padding: clamp(4rem, 7vw, 6.5rem) 0;
+  background: radial-gradient(circle at 80% 20%, rgba(61, 0, 2, 0.55), var(--wine-950) 65%);
+}
+
+.fleet-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.fleet-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(238, 201, 122, 0.20), rgba(182, 130, 42, 0.08));
+  border: 1px solid rgba(238, 201, 122, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-300);
+  flex-shrink: 0;
+  margin-top: 2px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.fleet-feature-item:hover .fleet-icon-box {
+  transform: translateY(-2px);
+  border-color: var(--gold-300);
+  color: var(--gold-100);
+  box-shadow: 0 6px 18px rgba(217, 164, 65, 0.35);
+}
+
+.fleet-photo-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1.2px solid rgba(238, 201, 122, 0.35);
+  box-shadow: 0 24px 54px -12px rgba(0, 0, 0, 0.7);
+  background: radial-gradient(circle at 50% 30%, #3d0002, #140204);
+}
+
+.fleet-photo-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fleet-photo-frame:hover img {
+  transform: scale(1.03);
+}
+
+.fleet-floating-badge {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  right: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(30, 3, 7, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(238, 201, 122, 0.28);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+@media (max-width: 900px) {
+  .wholesale-fleet-section .split {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    direction: ltr !important;
+  }
+
+  .fleet-floating-badge {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: -1rem;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    border-top: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body[data-page="about"] .page-banner {
+    min-height: 84vh;
+    min-height: 84dvh;
+    background-position: 84% 15%;
+    align-items: flex-end;
+  }
+
+  body[data-page="about"] .page-banner::after {
+    background:
+      linear-gradient(180deg,
+        rgba(16, 2, 4, 0.20) 0%,
+        rgba(16, 2, 4, 0.12) 32%,
+        rgba(16, 2, 4, 0.68) 55%,
+        rgba(16, 2, 4, 0.94) 75%,
+        rgba(16, 2, 4, 0.98) 100%);
+  }
+
+  .about-banner-content {
+    max-width: 100%;
+    padding: clamp(6rem, 12vh, 8rem) 0 clamp(2.2rem, 5vh, 3.2rem);
+  }
+
+  .about-banner-content h1 {
+    font-size: clamp(2.3rem, 8.5vw, 3.1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .fleet-icon-box {
+    width: 38px;
+    height: 38px;
+  }
+
+  .fleet-floating-badge {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .page-banner-content {

@@ -51,12 +51,14 @@
 
   <header id="site-header"></header>
 
-  <section class="page-banner"
-    style="background-image:url('assets/images/about/story-hero-banner.jpg')">
-    <div class="wrap page-banner-content">
-      <p class="crumb">HOME / OUR STORY</p>
-      <h1>Our Story</h1>
-      <p>A shorter, fresher path between the spice gardens of Sri Lanka and the kitchens that use them.</p>
+  <section class="page-banner about-page-banner"
+    style="background-image:url('assets/images/about/story-hero-banner.png');">
+    <div class="wrap">
+      <div class="page-banner-content about-banner-content">
+        <p class="crumb">HOME / OUR STORY</p>
+        <h1>Our Story</h1>
+        <p>A shorter, fresher path between the spice gardens of Sri Lanka and the kitchens that use them.</p>
+      </div>
     </div>
   </section>
 
@@ -189,28 +191,45 @@
           To guarantee peak aromatic vibrancy and fair pricing, we eliminate layers of middlemen. Spices are sun-cured, precision-milled, and dispatched directly from our processing warehouse via our dedicated Oleetzo delivery fleet across Sri Lanka.
         </p>
 
-        <div class="fleet-features-list" style="margin: 1.8rem 0; display:flex; flex-direction:column; gap:1.1rem;">
-          <div style="display:flex; align-items:flex-start; gap:0.85rem;">
-            <div style="width:28px; height:28px; border-radius:50%; background:rgba(238,201,122,0.15); border:1px solid rgba(238,201,122,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-300); font-size:0.8rem; flex-shrink:0; margin-top:2px;">✦</div>
+        <div class="fleet-features-list" style="margin: 1.8rem 0; display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="fleet-feature-item">
+            <div class="fleet-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
             <div>
-              <strong style="color:var(--ivory); font-size:1rem; display:block; margin-bottom:0.2rem;">Direct Island-Wide Wholesale Fleet</strong>
-              <span style="color:rgba(247,243,235,0.74); font-size:0.88rem; line-height:1.5; display:block;">Dedicated transport serving premium restaurants, hotels, bakeries, and culinary retailers island-wide.</span>
+              <strong style="color:var(--ivory); font-size:1rem; display:block; margin-bottom:0.25rem;">Direct Island-Wide Wholesale Fleet</strong>
+              <span style="color:rgba(247,243,235,0.78); font-size:0.88rem; line-height:1.55; display:block;">Dedicated transport serving premium restaurants, hotels, bakeries, and culinary retailers island-wide.</span>
             </div>
           </div>
 
-          <div style="display:flex; align-items:flex-start; gap:0.85rem;">
-            <div style="width:28px; height:28px; border-radius:50%; background:rgba(238,201,122,0.15); border:1px solid rgba(238,201,122,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-300); font-size:0.8rem; flex-shrink:0; margin-top:2px;">✦</div>
+          <div class="fleet-feature-item">
+            <div class="fleet-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                <path d="m3.3 7 8.7 5 8.7-5"></path>
+                <path d="M12 22V12"></path>
+              </svg>
+            </div>
             <div>
-              <strong style="color:var(--ivory); font-size:1rem; display:block; margin-bottom:0.2rem;">Commercial Bulk Sacks (5 kg – 50 kg) &amp; 1 kg Foil Packs</strong>
-              <span style="color:rgba(247,243,235,0.74); font-size:0.88rem; line-height:1.5; display:block;">Custom wholesale quantities packed in heavy-duty commercial sacks and moisture-sealed foil at transparent, direct-mill rates.</span>
+              <strong style="color:var(--ivory); font-size:1rem; display:block; margin-bottom:0.25rem;">Commercial Bulk Sacks (5 kg – 50 kg) &amp; 1 kg Foil Packs</strong>
+              <span style="color:rgba(247,243,235,0.78); font-size:0.88rem; line-height:1.55; display:block;">Custom wholesale quantities packed in heavy-duty commercial sacks and moisture-sealed foil at transparent, direct-mill rates.</span>
             </div>
           </div>
 
-          <div style="display:flex; align-items:flex-start; gap:0.85rem;">
-            <div style="width:28px; height:28px; border-radius:50%; background:rgba(238,201,122,0.15); border:1px solid rgba(238,201,122,0.35); display:flex; align-items:center; justify-content:center; color:var(--gold-300); font-size:0.8rem; flex-shrink:0; margin-top:2px;">✦</div>
+          <div class="fleet-feature-item">
+            <div class="fleet-icon-box" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
             <div>
-              <strong style="color:var(--ivory); font-size:1rem; display:block; margin-bottom:0.2rem;">Direct Hotline &amp; WhatsApp Supply Desk</strong>
-              <span style="color:rgba(247,243,235,0.74); font-size:0.88rem; line-height:1.5; display:block;">Instant wholesale quotation and dispatch scheduling: <a href="tel:+94701137377" style="color:var(--gold-300);font-weight:600;text-decoration:none;">070 113 7377</a> / <a href="https://wa.me/94701137377" target="_blank" rel="noopener noreferrer" style="color:#25d366;font-weight:600;text-decoration:none;">WhatsApp</a></span>
+              <strong style="color:var(--ivory); font-size:1rem; display:block; margin-bottom:0.25rem;">Direct Hotline &amp; WhatsApp Supply Desk</strong>
+              <span style="color:rgba(247,243,235,0.78); font-size:0.88rem; line-height:1.55; display:block;">Instant wholesale quotation and dispatch scheduling: <a href="tel:+94701137377" style="color:var(--gold-300);font-weight:600;text-decoration:none;">070 113 7377</a> / <a href="https://wa.me/94701137377" target="_blank" rel="noopener noreferrer" style="color:#25d366;font-weight:600;text-decoration:none;">WhatsApp</a></span>
             </div>
           </div>
         </div>
@@ -225,12 +244,11 @@
       </div>
 
       <div class="split-media reveal" style="direction:ltr;">
-        <div class="fleet-photo-frame" style="position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1.2px solid rgba(238,201,122,0.35);box-shadow:0 24px 54px -12px rgba(0,0,0,0.7);background:radial-gradient(circle at 50% 30%, #3d0002, #140204);">
+        <div class="fleet-photo-frame">
           <img src="assets/images/about/oleetzo-wholesale-fleet.jpg"
                alt="Oleetzo spice wholesale delivery truck at the processing and packaging facility"
-               style="width:100%;height:auto;display:block;object-fit:cover;transition:transform 0.5s ease;"
                loading="lazy">
-          <div style="position:absolute;bottom:1.2rem;left:1.2rem;right:1.2rem;padding:0.75rem 1.1rem;background:rgba(30,3,7,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:var(--radius-lg);border:1px solid rgba(238,201,122,0.25);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+          <div class="fleet-floating-badge">
             <div>
               <span style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-300);font-weight:600;display:block;">Oleetzo Logistics Fleet</span>
               <span style="font-size:0.86rem;color:var(--ivory);font-weight:500;">Direct Mill Wholesale &amp; Bulk Dispatch</span>
@@ -243,7 +261,7 @@
   </section>
 
   <!-- ================= CTA ================= -->
-  <section class="section-cream" style="padding-top:0;">
+  <section class="section-cream" style="padding-top: clamp(4.5rem, 8vw, 7rem); padding-bottom: clamp(4.5rem, 8vw, 7rem);">
     <div class="wrap">
       <div class="cta-banner"
         style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Cinnamomum_verum_spices.jpg?width=1400')">
