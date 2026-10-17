@@ -6,9 +6,9 @@
    ===================================================== */
 function initOleetzo() {
 
-  /* ---- 1. Logo Preloader Animation Controller (Exact 3.0s Presentation) ---- */
+  /* ---- 1. Logo Preloader Animation Controller (2.0s Presentation) ---- */
   var loader = document.getElementById('site-loader');
-  var TARGET_DURATION = 3000; // 3 seconds presentation
+  var TARGET_DURATION = 2000; // 2.0 seconds presentation
   var loaderHidden = false;
 
   function hideLoader() {
@@ -35,8 +35,8 @@ function initOleetzo() {
     document.body.classList.add('loaded');
   }
 
-  // Safety fallback timer at 3.3s
-  setTimeout(hideLoader, 3300);
+  // Safety fallback timer at 2.3s
+  setTimeout(hideLoader, 2300);
 
   /* ---- 2. Scroll Reveal Animations (Performance Optimized) ---- */
   var revealSelectors = [
