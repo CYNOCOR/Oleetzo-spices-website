@@ -63,43 +63,69 @@
     <div class="wrap contact-grid">
 
       <div class="contact-form-panel">
-        <p class="eyebrow">SEND A MESSAGE</p>
-        <h2>We usually reply within a day.</h2>
+        <p class="eyebrow">SEND AN ENQUIRY</p>
+        <h2>Request a Quote or Order</h2>
         <hr class="gold-rule">
         <form id="contactForm" style="margin-top:2rem;" aria-label="Contact Oleetzo">
+          <div class="field">
+            <label for="contactMethod">Preferred Contact Method</label>
+            <select id="contactMethod" name="contactMethod" aria-label="Preferred Contact Method">
+              <option value="whatsapp" selected>WhatsApp (Fastest response)</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+
           <div class="row2">
             <div class="field">
-              <label for="name">Full name</label>
-              <input type="text" id="name" required autocomplete="name">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="e.g. John Doe" required autocomplete="name">
             </div>
             <div class="field">
-              <label for="email">Email address</label>
-              <input type="email" id="email" required autocomplete="email">
+              <label for="phone" id="phoneLabel">Phone / WhatsApp *</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. 077 123 4567" required autocomplete="tel">
             </div>
           </div>
-          <div class="field">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" placeholder="Retail order, wholesale, custom blend...">
+
+          <div class="row2">
+            <div class="field">
+              <label for="email" id="emailLabel">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="e.g. name@example.com" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="Wholesale &amp; Bulk Supply (1kg – 25kg+)" selected>Wholesale &amp; Bulk Supply (1kg – 25kg+)</option>
+                <option value="Retail Pantry &amp; Spices">Retail Pantry &amp; Spice Packs</option>
+                <option value="Custom Blends &amp; Grinding">Custom Spice Blends &amp; Grinding</option>
+                <option value="Export &amp; International Freight">Export &amp; International Freight</option>
+                <option value="Hotel, Resort &amp; Restaurant Supply">Hotel, Resort &amp; Restaurant Supply</option>
+                <option value="Sample Request &amp; General Enquiry">Sample Request &amp; General Enquiry</option>
+              </select>
+            </div>
           </div>
+
           <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" rows="5" required></textarea>
+            <label for="message">Describe Your Requirements</label>
+            <textarea id="message" name="message" rows="5" placeholder="Spice varieties (Ceylon Alba cinnamon, bold black pepper), estimated volume (kg), packaging preferences, or questions..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-gold">Send Message</button>
+
+          <button type="submit" class="btn btn-gold btn-block" id="contactSubmitBtn">
+            <span id="submitBtnText">Submit via WhatsApp (Fastest response)</span>
+          </button>
           <p class="form-note" id="contactNote" role="status" aria-live="polite"></p>
         </form>
       </div>
 
       <div>
         <div class="info-card">
-          <h3 style="color:var(--ivory);">Reach Us Directly</h3>
+          <h3>Reach Us Directly</h3>
           <div class="info-row">
             <span class="k">EMAIL</span>
             <span class="v"><a href="mailto:oleetzo@gmail.com" style="color:inherit;text-decoration:underline;">oleetzo@gmail.com</a></span>
           </div>
           <div class="info-row">
             <span class="k">WHATSAPP</span>
-            <span class="v"><a href="https://wa.me/94701137377" target="_blank" rel="noopener noreferrer" style="color:#25d366;font-weight:600;display:inline-flex;align-items:center;gap:0.35rem;">+94 70 113 7377</a></span>
+            <span class="v"><a href="https://wa.me/94701137377" target="_blank" rel="noopener noreferrer" style="color:#128c7e;font-weight:600;display:inline-flex;align-items:center;gap:0.35rem;">+94 70 113 7377</a></span>
           </div>
           <div class="info-row">
             <span class="k">PHONE</span>
@@ -116,10 +142,6 @@
           <div class="info-row">
             <span class="k">STUDIO</span>
             <span class="v">Sri Lanka</span>
-          </div>
-          <div class="info-row">
-            <span class="k">HOURS</span>
-            <span class="v">Mon – Sat, 9am – 6pm</span>
           </div>
         </div>
         <p class="footer-note" style="color:var(--ink-soft);margin-top:1.2rem;">Direct harvest inquiries and scheduled garden tastings available upon prior request.</p>

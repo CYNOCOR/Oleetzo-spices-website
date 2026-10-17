@@ -234,43 +234,103 @@ function initOleetzo() {
     });
   }
 
-  /* ---- 6. Contact form confirmation & auto-fill ---- */
+  /* ---- 6. Contact form confirmation & auto-fill (WhatsApp & Email Modes) ---- */
   var form = document.getElementById('contactForm');
-  var subjectField = document.getElementById('subject');
-  if (subjectField) {
-    var queryParams = new URLSearchParams(window.location.search);
-    var spiceParam = queryParams.get('spice');
+  var methodSelect = document.getElementById('contactMethod');
+  var serviceField = document.getElementById('service');
+  var messageField = document.getElementById('message');
+  var submitBtnText = document.getElementById('submitBtnText');
+  var phoneInput = document.getElementById('phone');
+  var emailInput = document.getElementById('email');
+  var phoneLabel = document.getElementById('phoneLabel');
+  var emailLabel = document.getElementById('emailLabel');
+
+  function updateContactMethod() {
+    var method = methodSelect ? methodSelect.value : 'whatsapp';
+    if (method === 'whatsapp') {
+      if (submitBtnText) submitBtnText.textContent = 'Submit via WhatsApp (Fastest response)';
+      if (phoneInput) phoneInput.required = true;
+      if (emailInput) emailInput.required = false;
+      if (phoneLabel) phoneLabel.textContent = 'Phone / WhatsApp *';
+      if (emailLabel) emailLabel.textContent = 'Email Address';
+    } else {
+      if (submitBtnText) submitBtnText.textContent = 'Submit via Email';
+      if (emailInput) emailInput.required = true;
+      if (phoneInput) phoneInput.required = false;
+      if (emailLabel) emailLabel.textContent = 'Email Address *';
+      if (phoneLabel) phoneLabel.textContent = 'Phone / WhatsApp';
+    }
+  }
+
+  if (methodSelect) {
+    methodSelect.addEventListener('change', updateContactMethod);
+    updateContactMethod();
+  }
+
+  var queryParams = new URLSearchParams(window.location.search);
+  var spiceParam = queryParams.get('spice');
+  var subjectParam = queryParams.get('subject');
+
+  if (serviceField) {
+    if (subjectParam && subjectParam.toLowerCase().indexOf('wholesale') !== -1) {
+      serviceField.value = 'Wholesale & Bulk Supply (1kg – 25kg+)';
+    } else if (spiceParam) {
+      serviceField.value = 'Retail Pantry & Spices';
+    }
+  }
+
+  if (messageField && (spiceParam || subjectParam)) {
     if (spiceParam) {
-      subjectField.value = 'Enquiry regarding ' + spiceParam;
+      messageField.value = 'I would like to enquire about ordering ' + spiceParam + '. Please let me know available pack sizes, bulk pricing and delivery lead times.';
+    } else if (subjectParam) {
+      messageField.value = 'I would like to enquire regarding ' + subjectParam + '. Please provide wholesale pricing tiers and dispatch details.';
     }
   }
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var method = methodSelect ? methodSelect.value : 'whatsapp';
       var name = document.getElementById('name') ? document.getElementById('name').value.trim() : '';
-      var userEmail = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
-      var subjectVal = document.getElementById('subject') ? document.getElementById('subject').value.trim() : 'Oleetzo Spice Order / Enquiry';
-      var messageVal = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
-
-      var mailSubject = encodeURIComponent(subjectVal || 'Oleetzo Spice Enquiry');
-      var mailBody = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Sender Email: ' + userEmail + '\n\n' +
-        'Message:\n' + messageVal + '\n\n' +
-        '---\nSent via Oleetzo Spices Website'
-      );
-
-      var mailtoLink = 'mailto:oleetzo@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
-
+      var phone = phoneInput ? phoneInput.value.trim() : '';
+      var userEmail = emailInput ? emailInput.value.trim() : '';
+      var serviceVal = serviceField ? serviceField.value : 'General Enquiry';
+      var messageVal = messageField ? messageField.value.trim() : '';
       var note = document.getElementById('contactNote');
-      if (note) {
-        note.textContent = 'Opening your email to send to oleetzo@gmail.com... Thank you!';
-        note.classList.add('show');
-      }
 
-      // Trigger user's mail client (Gmail / default mail app)
-      window.location.href = mailtoLink;
+      if (method === 'whatsapp') {
+        var waText =
+          'Hello Oleetzo, I would like to make an enquiry:\n\n' +
+          '*Full Name:* ' + name + '\n' +
+          '*Phone / WhatsApp:* ' + phone + '\n' +
+          (userEmail ? '*Email:* ' + userEmail + '\n' : '') +
+          '*Service Needed:* ' + serviceVal + '\n\n' +
+          '*Requirements & Details:*\n' + messageVal;
+
+        var waUrl = 'https://wa.me/94701137377?text=' + encodeURIComponent(waText);
+        if (note) {
+          note.textContent = 'Opening WhatsApp to chat with Oleetzo (+94 70 113 7377)...';
+          note.classList.add('show');
+        }
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        var mailSubject = encodeURIComponent('Oleetzo Enquiry: ' + serviceVal + (name ? ' - ' + name : ''));
+        var mailBody = encodeURIComponent(
+          'Full Name: ' + name + '\n' +
+          'Phone / WhatsApp: ' + phone + '\n' +
+          'Email Address: ' + userEmail + '\n' +
+          'Service Needed: ' + serviceVal + '\n\n' +
+          'Requirements & Details:\n' + messageVal + '\n\n' +
+          '---\nSent via Oleetzo Spices Website Contact Form'
+        );
+
+        var mailtoLink = 'mailto:oleetzo@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
+        if (note) {
+          note.textContent = 'Opening your email client to send to oleetzo@gmail.com... Thank you!';
+          note.classList.add('show');
+        }
+        window.location.href = mailtoLink;
+      }
     });
   }
 
