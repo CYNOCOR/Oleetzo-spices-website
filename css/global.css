@@ -3506,13 +3506,17 @@ html, body {
   overflow: hidden;
   border: 1px solid rgba(238, 201, 122, 0.22);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45);
-  background: #0d0204;
+  background: #140205;
+  line-height: 0;
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .showcase-master-photo {
   width: 100%;
   height: auto;
   display: block;
+  vertical-align: bottom;
   object-fit: cover;
   transition: transform 0.8s ease;
 }
